@@ -35,3 +35,4 @@ wheel==0.37.0
 psycopg2==2.9.1
 asgiref
 html5lib
+lxml
