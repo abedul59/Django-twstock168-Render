@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+#
 class Person(User):
     cName = models.CharField(max_length=20, null=False)
     cCellphone = models.CharField(max_length=10, null=False, default=False)
