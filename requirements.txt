@@ -34,4 +34,3 @@ wcwidth==0.2.5
 zipp==3.8.0
 wheel==0.37.0
 psycopg2==2.9.1
-html5lb
