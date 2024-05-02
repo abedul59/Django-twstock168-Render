@@ -5,7 +5,7 @@ Created on Wed Aug 25 19:12:32 2021
 @author: pcuser
 """
 
-
+#
 import random
 
 #from func3_eps import EPS_quarterlyGetter
