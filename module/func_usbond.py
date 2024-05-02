@@ -31,7 +31,10 @@ def getUSBondYield3m():
     ######以下為判斷上市或上櫃，取得年度股價程式
     import pandas as pd 
     import requests
-    from bs4 import BeautifulSoup    
+    from bs4 import BeautifulSoup
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings()  
 
     #3M
     cnyes_url = 'https://www.cnyes.com/futures/html5chart/TB3MY.html' 
@@ -60,7 +63,9 @@ def getUSBondYield6m():
     import pandas as pd 
     import requests
     from bs4 import BeautifulSoup    
-
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings() 
     #6M
     cnyes_url = 'https://www.cnyes.com/futures/html5chart/TB6MY.html' 
 
@@ -87,7 +92,9 @@ def getUSBondYield2y():
     import pandas as pd 
     import requests
     from bs4 import BeautifulSoup    
-
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings() 
     #6M
     cnyes_url = 'https://www.cnyes.com/futures/html5chart/US2YY.html' 
 
@@ -114,7 +121,9 @@ def getUSBondYield3y():
     import pandas as pd 
     import requests
     from bs4 import BeautifulSoup    
-
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings() 
     #6M
     cnyes_url = 'https://www.cnyes.com/futures/html5chart/US3YY.html' 
 
@@ -141,7 +150,9 @@ def getUSBondYield5y():
     import pandas as pd 
     import requests
     from bs4 import BeautifulSoup    
-
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings() 
     #6M
     cnyes_url = 'https://www.cnyes.com/futures/html5chart/US5YY.html' 
 
@@ -167,7 +178,9 @@ def getUSBondYield7y():
     import pandas as pd 
     import requests
     from bs4 import BeautifulSoup    
-
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings() 
     #6M
     cnyes_url = 'https://www.cnyes.com/futures/html5chart/US7YY.htmll' 
 
@@ -193,7 +206,9 @@ def getUSBondYield10y():
     import pandas as pd 
     import requests
     from bs4 import BeautifulSoup    
-
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings() 
     #6M
     cnyes_url = 'https://www.cnyes.com/futures/html5chart/US10YY.html' 
 
@@ -219,7 +234,9 @@ def getUSBondYield30y():
     import pandas as pd 
     import requests
     from bs4 import BeautifulSoup    
-
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings() 
     #6M
     cnyes_url = 'https://www.cnyes.com/futures/html5chart/US30YY.html' 
 
@@ -297,7 +314,9 @@ def getUSBondYield():
     import pandas as pd 
     import requests
     from bs4 import BeautifulSoup    
-
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings() 
 
     cnyes_url = 'https://www.cnyes.com/bond/' 
 
