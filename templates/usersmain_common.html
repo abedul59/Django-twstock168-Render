@@ -1,0 +1,509 @@
+﻿{% extends "baseusers_common.html" %}
+
+
+
+
+
+
+
+
+
+{% block content0 %}
+	<div class="contentbox">
+		<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="6">分類</FONT></th>
+		  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">標題</FONT></th>
+		  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">時間</FONT></th>
+		  <th align="left" style="background-color:#DDDDFF;"><FONT SIZE="6">點閱</FONT></th>
+	
+		</tr>
+		{% for unit0 in newsunits0 %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock">【{{ unit0.catego }}】</div></FONT></td>
+			<td><FONT SIZE="6"><a href="/detail/{{unit0.id}}/">{{ unit0.title }}</a></FONT></td>
+			<td><FONT SIZE="5">{{ unit0.pubtime }}</FONT></td>
+			<td align="center"><FONT SIZE="5">{{ unit0.press }}</FONT></td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前沒有任何公告！</FONT></p>
+			</div>
+		{% endfor %}
+
+		</table>
+		<br><br><br>
+		<table width="100%">
+{% endblock %}
+
+
+
+
+
+{% block append %}
+	<a href="/common_enterStockFavAdmin/{{username}}/" title="新增股票 至 我的最愛">
+	<FONT SIZE="7">新增股票 至 我的最愛</FONT></a>
+	<br><br><br>
+	<a href="/common_StoFavlistall/{{username}}/" title="列出所有 我的最愛 股票">
+	<FONT SIZE="7">列出所有 我的最愛 股票</FONT></a>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+{% block content1 %}
+<div class="contentbox">
+
+
+		<table width="100%"><caption><FONT SIZE="6">美國公債殖利率觀察儀表板</FONT></caption>
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="3">利率上揚</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="3">資金緊俏</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="3">資金緊俏</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨加劇</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨加劇</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨加劇</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨加劇</FONT></th>
+			  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="3">景氣上揚</FONT></th>
+			  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="3">景氣上揚</FONT></th>
+
+			</tr>
+
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="3">利率下跌</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="3">資金寬鬆</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="3">資金寬鬆</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨趨緩</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨趨緩</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨趨緩</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨趨緩</FONT></th>
+			  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="3">景氣趨緩</FONT></th>
+			  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="3">景氣趨緩</FONT></th>
+
+			</tr>
+
+
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="4">代表意義</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="4">資金寬緊</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="4">資金寬緊</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="4">通膨預期</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="4">通膨預期</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="4">通膨預期</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="4">通膨預期</FONT></th>
+			  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="4">景氣榮枯</FONT></th>
+			  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="4">景氣榮枯</FONT></th>
+
+			</tr>
+
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="6">資料時間</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">3M</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">6M</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">2Y</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">3Y</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">5Y</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">7Y</FONT></th>
+			  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">10Y</FONT></th>
+			  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">30Y</FONT></th>
+			</tr>
+			{% for unitm in newsunitsm %}
+				<tr class="alt">
+				<td><FONT SIZE="5"><div class="typeblock">【{{ unitm.cDate }}】</div></FONT></td>
+				<td><FONT SIZE="5"><div class="typeblock">{{ unitm.cInvertedYieldCurve3m }}</div></FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve6m }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve2y }}</div></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve3y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve5y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve7y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve10y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve30y }}</FONT></td>
+			</td>
+				</tr>
+			{% empty %}
+				<div class="status warning">
+					<p><FONT SIZE="6"><span>注意</span> 目前美國公債殖利率觀察儀表板中沒有任何資料！</FONT></p>
+				</div>
+			{% endfor %}
+		
+		
+		
+		
+		
+			</table>
+		
+		<br><br>
+
+
+
+		<table width="100%"><caption><FONT SIZE="6">總經指標A</FONT></caption>
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="3">公布時間</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+
+			</tr>
+
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="6">資料時間</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">美國公債 3 Month殖利率</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">美國公債 10 Year殖利率</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">美國公債3M-10Y 利差</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">CRB指數</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">CRB半年漲跌幅</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">CRB一年漲跌幅</FONT></th>
+
+			</tr>
+			{% for unitm in newsunitsm %}
+				<tr class="alt">
+				<td><FONT SIZE="5"><div class="typeblock">【{{ unitm.cDate }}】</div></FONT></td>
+				<td><FONT SIZE="5"><div class="typeblock">{{ unitm.cInvertedYieldCurve3m }}</div></FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve10y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cIYC10yminus3m }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cCRBindex }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cCRBhalfyear }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cCRBoneyear }}</FONT></td>
+			</td>
+				</tr>
+			{% empty %}
+				<div class="status warning">
+					<p><FONT SIZE="6"><span>注意</span> 目前總經資料庫A中沒有任何資料！</FONT></p>
+				</div>
+			{% endfor %}
+		
+		
+		
+		
+		
+			</table>
+		
+		<br><br>
+
+
+		<table width="100%"><caption><FONT SIZE="6">總經指標B</FONT></caption>
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="3">公布時間</FONT></th>
+			  
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="3">每月第一週公布下一年上月數據</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每月24日公布上月數據</FONT></th>			  
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每月第七個營業日公布上月數據</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			</tr>
+
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="6">資料<br>時間</FONT></th>
+			  
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">衰退<br>時間</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">衰退<br>機率</FONT></th>
+			  
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">M1b<br>資料時間</FONT></th>			  
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">M1b<br>年增率</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">M1b<br>數據（億元）</FONT></th>	
+			  		  
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">上市總市值<br>公佈資料時間</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">上市總市值<br>數據（百萬元）</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">市值<br>貨幣比</FONT></th>
+			</tr>
+			{% for unitm2 in newsunitsm2 %}
+				<tr class="alt">
+				<td><FONT SIZE="5"><div class="typeblock">【{{ unitm2.cDate }}】</div></FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cRecesTime }}</FONT></td>		
+				<td align="center"><FONT SIZE="5">{{ unitm2.cRecesNum }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cM1bTime }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cM1bYoY }}</FONT></td>		
+				<td align="center"><FONT SIZE="5">{{ unitm2.cM1bNum }}</FONT></td>	
+				<td align="center"><FONT SIZE="5">{{ unitm2.cMVTime}}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cMarketVaule }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cMVvsM1b }}</FONT></td>
+			</td>
+				</tr>
+			{% empty %}
+				<div class="status warning">
+					<p><FONT SIZE="6"><span>注意</span> 目前總經資料庫B中沒有任何資料！</FONT></p>
+				</div>
+			{% endfor %}
+		
+		
+		
+		
+		
+			</table>
+
+		
+		<br><br>
+
+		<table width="100%"><caption><FONT SIZE="6">總經指標C</FONT></caption>
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="3">公布時間</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="3">每月第一個週五公布上月數據</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每月第三週（約20日）公佈上月數據</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每月第二週週五公佈當月初值</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每月最後週五公佈當月終值</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="3">每月最後週公佈上月數據</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="3"></FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3">每月最後一天公佈當月數據</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+
+			</tr>
+
+
+			<tr>
+			  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="6">資料<br>更新時間</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">美國<br>失業率</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">美國<br>領先指標<br>公佈時間</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">美國<br>領先<br>指標</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">密大消費者信心指數<br>公佈時間</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">密西根大學<br>消費者信心指數</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">最新美國<br>耐久財新訂單<br>年增率</FONT></th>
+			  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">次新美國<br>耐久財新訂單<br>年增率</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">中國<br>PMI<br>公佈時間</FONT></th>
+			  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">中國<br>PMI</FONT></th>
+
+			</tr>
+			{% for unitm3 in newsunitsm3 %}
+				<tr class="alt">
+				<td><FONT SIZE="5"><div class="typeblock">【{{ unitm3.cDate }}】</div></FONT></td>
+				<td><FONT SIZE="5"><div class="typeblock">{{ unitm3.cUSUnemploymentRate }}</div></FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cUSLeadingIndicatorTime }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cUSLeadingIndicator }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cMichiganComsumerTime }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cMichiganComsumer }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cDurableGoodsNewOrder1 }}</FONT></td>		
+				<td align="center"><FONT SIZE="5">{{ unitm3.cDurableGoodsNewOrder2 }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cChinaPMITime }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cChinaPMI }}</FONT></td>
+			</td>
+				</tr>
+			{% empty %}
+				<div class="status warning">
+					<p><FONT SIZE="6"><span>注意</span> 目前總經資料庫C中沒有任何資料！</FONT></p>
+				</div>
+			{% endfor %}
+		
+		
+		
+		
+		
+			</table>
+
+		<br><br>
+
+		
+
+<table width="100%"><caption><FONT SIZE="6">貨幣寬鬆時期</FONT></caption>
+		<tr>		  
+		<th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">代碼</FONT></th>
+		  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">名稱</FONT></th>
+
+
+
+
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>EPS</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">最新<br>價格</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最高價</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最低價</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">上面<br>空間</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">下面<br>風險</FONT></th>
+		 <th align="left" style="background-color:#64A600;"><FONT SIZE="6">風險<br>報酬<br>比率</FONT></th>
+
+
+
+		  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">建置<br>時間</FONT></th>
+		  <th align="left" style="background-color:#FF5151;"><FONT SIZE="6">刪除</FONT></th>
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock"><a href="{{ unit.cDBURL}}">【{{ unit.cStockID}}】</a></div></FONT></td>
+			<td><FONT SIZE="6">{{ unit.cStockName }}</FONT></td>
+
+
+
+
+
+			<td><FONT SIZE="6">{{ unit.cPredict_EPS}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cTodayClose}}</FONT></td>
+
+			<td><FONT SIZE="6">{{ unit.cPredict_high_price}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cPredict_low_price}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_up_profit}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_down_loss}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cRisk_reward}}</FONT></td>
+
+
+
+			<td align="center"><FONT SIZE="5">{{ unit.pubtime }}</FONT></td>
+			<td><FONT SIZE="6">
+
+				<a href="/newsdelete_common/{{username}}/{{unit.id}}/" title="股票刪除">D</a></FONT>
+			</td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前我的最愛股票資料庫中沒有任何資料！</FONT></p>
+			</div>
+		{% endfor %}
+
+
+
+
+
+		</table>
+
+<br><br>
+
+<table width="100%"><caption><FONT SIZE="6">貨幣緊縮時期（本益比往下修正30%）</FONT></caption>
+		<tr>		  
+		<th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">代碼</FONT></th>
+		  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">名稱</FONT></th>
+
+
+
+
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>EPS</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">最新<br>價格</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最高價</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最低價</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">上面<br>空間</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">下面<br>風險</FONT></th>
+		 <th align="left" style="background-color:#64A600;"><FONT SIZE="6">風險<br>報酬<br>比率</FONT></th>
+
+
+
+		  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">建置<br>時間</FONT></th>
+		  <th align="left" style="background-color:#FF5151;"><FONT SIZE="6">刪除</FONT></th>
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock"><a href="{{ unit.cDBURL}}">【{{ unit.cStockID}}】</a></div></FONT></td>
+			<td><FONT SIZE="6">{{ unit.cStockName }}</FONT></td>
+
+
+
+
+
+			<td><FONT SIZE="6">{{ unit.cPredict_EPS}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cTodayClose}}</FONT></td>
+
+			<td><FONT SIZE="6">{{ unit.cPredict_high_price_down30}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cPredict_low_price_down30}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_up_profit_down30}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_down_loss_down30}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cRisk_reward_down30}}</FONT></td>
+
+
+
+			<td align="center"><FONT SIZE="5">{{ unit.pubtime }}</FONT></td>
+			<td><FONT SIZE="6">
+
+				<a href="/newsdelete_common/{{username}}/{{unit.id}}/" title="股票刪除">D</a></FONT>
+			</td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前我的最愛股票資料庫中沒有任何資料！</FONT></p>
+			</div>
+		{% endfor %}
+
+
+
+
+
+		</table>
+
+<br><br>
+
+<table width="100%">
+		<tr>		  
+
+		  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">名稱</FONT></th>
+
+
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">最新<br>評分</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">上個月<br>評分</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">上上<br>個月<br>評分</FONT></th>
+
+
+
+
+		 <th align="left" style="background-color:#96FED1;"><FONT SIZE="6">EPS<br>達成率</FONT></th>
+		 <th align="left" style="background-color:#96FED1;"><FONT SIZE="6">股本<br>變動率<br>（季對季）</FONT></th>
+		 <th align="left" style="background-color:#96FED1;"><FONT SIZE="6">EPS或<br>營益率<br>創新高</FONT></th>
+		 <th align="left" style="background-color:#96FED1;"><FONT SIZE="6">本益比<br>區間<br>變動率<br>在30%內</FONT></th>
+
+
+
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+
+			<td><FONT SIZE="6">{{ unit.cStockName }}</FONT></td>
+
+
+			<td><FONT SIZE="6">{{ unit.cScore1st}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cScore2nd}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cScore3rd}}</FONT></td>
+
+
+
+
+			<td><FONT SIZE="6">{{ unit.cEPSach}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cStCap}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cEPSnPrf}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cPERstab}}</FONT></td>
+
+
+
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前我的最愛股票資料庫中沒有任何資料！</FONT></p>
+			</div>
+		{% endfor %}
+
+
+
+
+
+		</table>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block exit %}
+		<div class="topfunction">
+		{% if currentpage > 1 %}
+			<a href="/usersmain_common/{{username}}/1/" title="上一頁">
+			上一頁</a>
+		{% endif %}
+		{% if currentpage < totpage %}
+			<a href="/usersmain_common/{{username}}/2/" title="下一頁">
+			下一頁</a>
+		{% endif %}
+		 </div>
+	</div>
+
+{% endblock %}
+

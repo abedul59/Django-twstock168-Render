@@ -1,0 +1,149 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>台股財務六大指標即時計算分數（滿分4分，3分以上為好公司）</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout3/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="." method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid"  style="font-size:40px"></FONT> <br><br>
+          <input type="submit" value="送出資料"  style="font-size:60px"></div>
+
+
+
+</td>
+</tr>
+</table>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<caption><FONT SIZE="6">六大指標</FONT></caption>
+
+
+<tr>	
+<td style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">台股代號：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">股票名稱：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">營收評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">營益率評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result2}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>	
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">稅後淨利評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result3}}</FONT></div></td>
+</tr>
+
+
+<tr>	
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">EPS評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result4}}</FONT></div></td>
+</tr>
+
+
+<tr>	
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">存貨週轉率評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result5}}</FONT></div></td>
+</tr>
+
+
+<tr>	
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">現金流量評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result6}}</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#FF2D2D;" align="center"><div><FONT SIZE="7">總平均：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{average6stock}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+
+ 	
+
+
+
+
+
+
+<br>
+<br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/usersmain_app/" title="usersmain_app"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+</body>
+
+</html>

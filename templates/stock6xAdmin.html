@@ -1,0 +1,427 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢6大指標（新版優化）（寫入資料庫）</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="/stock6xAdmin/" method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid"  style="font-size:40px"></FONT> <br>
+    <div><FONT SIZE="7">請輸入寫入資料庫代號（範例：06指2021年6月營收資料庫）：<input type="text" name="dbname"  style="font-size:40px"></FONT> <br>
+          <input type="submit" value="送出資料"  style="font-size:40px"></div>
+
+
+</form>
+</td>
+</tr>
+</table>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<caption><FONT SIZE="6">六大指標（新版優化）（寫入資料庫）</FONT></caption>
+
+
+<tr>	
+<td style="background-color:#0072E3;" align="center">
+<div><FONT SIZE="7">台股代號：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">股票名稱：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+</tr>
+
+
+<tr>	
+<td style="background-color:#FF359A;" align="center"><div><FONT SIZE="7">營收評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result1}}</FONT></div></td>
+</tr>
+<tr>	
+<td style="background-color:#FF359A;" align="center"><div><FONT SIZE="7">營益率評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result2}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>	
+<td style="background-color:#FF359A;" align="center"><div><FONT SIZE="7">淨利評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result3}}</FONT></div></td>
+</tr>
+
+
+<tr>	
+<td style="background-color:#FF359A;" align="center"><div><FONT SIZE="7">EPS評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result4}}</FONT></div></td>
+</tr>
+
+
+<tr>	
+<td style="background-color:#FF359A;" align="center"><div><FONT SIZE="7">存貨週轉率評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result5}}</FONT></div></td>
+</tr>
+
+
+<tr>	
+<td style="background-color:#FF359A;" align="center"><div><FONT SIZE="7">現金流量評等：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{result6}}</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#01B468;" align="center"><div><FONT SIZE="7">總平均：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{average6stock}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+
+ 	
+
+
+
+
+
+
+
+
+<br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">營收詳細資料</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年月</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：%</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{a1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{na1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{a2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{na2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{a3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{na3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{a4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{na4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{a5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{na5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{a6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{na6}}</FONT></div></td>
+</tr>
+
+</table>
+
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">營益率詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：%</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{b1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{b1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{b2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{b2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{b3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{b3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{b4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{b4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{b5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{b5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{b6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{b6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{b7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{b7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{b8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{b8}}</FONT></div></td>
+</tr>
+</table>
+
+
+<br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">稅後淨利年增率詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：百萬 新台幣</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{c8}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#B766AD;"><div><FONT SIZE="7">最新1季年增率</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{pc9}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#B766AD;"><div><FONT SIZE="7">最新2季年增率</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{pc10}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#B766AD;"><div><FONT SIZE="7">最新3季年增率</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{pc11}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+<br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">EPS詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：元</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{d8}}</FONT></div></td>
+</tr>
+</table>
+
+
+<br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">存貨週轉率詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：次</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{e8}}</FONT></div></td>
+</tr>
+</table>
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">現金流量詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：百萬 新台幣</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{f8}}</FONT></div></td>
+</tr>
+</table>
+
+
+<br>
+<br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/adminsmain/" title="adminsmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+</body>
+
+</html>

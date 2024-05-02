@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有資料</title>
+	</head>
+	<body>
+		<h2>列出 資料庫2021年Q4財報和2022年2月營收公佈後評分2.5分以上，所有這八季EPS或營益率創新高的股票（E代表EPS，P代表營益率）</h2>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">股票代碼</FONT></th>
+			<th align="center"><FONT SIZE="5">股票名稱</FONT></th>
+
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">21Q4E</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">21Q3E</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">21Q2E</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">21Q1E</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">20Q4E</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">20Q3E</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">20Q2E</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">20Q1E</FONT></th>
+
+
+
+
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">21Q4P</FONT></th>
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">21Q3P</FONT></th>
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">21Q2P</FONT></th>
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">21Q1P</FONT></th>
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">20Q4P</FONT></th>
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">20Q3P</FONT></th>
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">20Q2P</FONT></th>		
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">20Q1P</FONT></th>
+
+
+
+
+
+
+
+
+
+			<th align="center"><FONT SIZE="5">資料獲取時間</FONT></th>
+			{% for ep in allepsprof %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ ep.id }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cStockID }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cStockName}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ ep.cEPS1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cEPS2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cEPS3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cEPS4}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cEPS5}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cEPS6}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cEPS7}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cEPS8}}</FONT> </td>
+
+
+					<td align="center"><FONT SIZE="5">{{ ep.cProf1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cProf2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cProf3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cProf4}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cProf5}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cProf6}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cProf7}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ ep.cProf8}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ ep.pubtime}}</FONT> </td>	
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

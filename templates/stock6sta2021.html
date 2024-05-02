@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有資料</title>
+	</head>
+	<body>
+		<h2>統計 2021年六大指標全年統計數據</h2>
+
+
+
+
+<br><br>
+
+		<table border="1" cellpadding="0" cellspacing="0">
+
+			<th align="center"><FONT SIZE="5">年月</FONT></th>
+			<th align="center"><FONT SIZE="5">3分以上<br>家數</FONT></th>
+			<th align="center"><FONT SIZE="5">2-2.9分<br>家數</FONT></th>
+			<th align="center"><FONT SIZE="5">1-1.9分<br>家數</FONT></th>
+			<th align="center"><FONT SIZE="5">0-0.9分<br>家數</FONT></th>
+			<th align="center"><FONT SIZE="5">進步<br>家數</FONT></th>
+			<th align="center"><FONT SIZE="5">持平<br>家數</FONT></th>
+			<th align="center"><FONT SIZE="5">退步<br>家數</FONT></th>
+
+
+			<th align="center"><FONT SIZE="5">資料<br>獲取<br>時間</FONT></th>
+			{% for sign in signs %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ sign.cTime }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cOver3p}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cOver2p}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cOver1p}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cOver0p}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cMorep}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSamep}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cLessp}}</FONT> </td>
+
+
+
+
+
+					<td align="center"><FONT SIZE="5">{{ sign.pubtime}}</FONT> </td>	
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

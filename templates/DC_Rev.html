@@ -1,0 +1,251 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>檢驗6大指標 - 營收</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="/DC_Rev/" method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid"  style="font-size:40px"></FONT> <br><br>
+          <input type="submit" value="送出資料"  style="font-size:60px"></div>
+
+
+
+</td>
+</tr>
+</table>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<caption><FONT SIZE="6">六大指標 - 營收 多重檢驗</FONT></caption>
+
+
+<tr>	
+<td style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">台股代號：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">股票名稱：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+</tr>
+
+
+
+</table>
+
+
+
+ 	
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">營收詳細資料</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年月</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：%</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb6}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FF0080;"><div><FONT SIZE="7">六個月平均</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb9}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center" style="background-color:#FF0080;"><div><FONT SIZE="7">最新一個月月增率</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb10}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">評等</FONT></div></td> <td><div align="center"><FONT SIZE="7">請參考下面多重驗證</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">營收指標多重驗證（-1表示「不符合」，「符合」會呈現各指標分數1-4）</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">指標條件</FONT></div></td> <td align="center"><div><FONT SIZE="7">條件說明</FONT></div></td> <td align="center"><div><FONT SIZE="7">分數</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去六個月皆為正數且平均超過25%，且最近一個月的年增率與上個月比為增加或持平（>=0）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultAA1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultAA2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A1</FONT></div></td> <td align="center"><div><FONT SIZE="5">或過去六個月平均超過25%，但最近一個月出現小幅衰退。（年增率較上個月下跌幅度在50%以內）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultA1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A2</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去六個月皆為正數平均10-25%，且最近一個月的年增率與上個月比較為增加或持平（>=0）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultA2}}</FONT></div></td>
+</tr>
+
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去六個月曾經出現單月負成長</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultBB1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultBB2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB3</FONT></div></td> <td align="center"><div><FONT SIZE="5">無法歸類的情況</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultBB3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去六個月平均為正數，但最近三個月出現遞減（不論幅度）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultB1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultB2}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去6個月平均數為負</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultC1}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C2</FONT></div></td> <td align="center"><div><FONT SIZE="5">或最近一個月為負數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultC2}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+<br>
+<br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/usersmain/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢上市公司類股六大指標評分（9月份）</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+   
+ 	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+  
+  {% else %}
+       
+ <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+ 
+   {% endif %}
+</td>
+</tr>
+
+</table>
+
+
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="7">查詢上市公司類股<br>六大指標評分<br>（9月份）</FONT></caption>
+
+<tr>
+  <td align="center">
+  <form action="/stock6listall202009tse/{{mess}}/" method="POST" name="form1">
+    {% csrf_token %}
+    <div>
+<br><br>
+<select style="font-size:50px;" name="groupid" id="groupid">
+    <option value="">請選擇類股</option>
+    <option value="tse1">上市化學工業</option>
+    <option value="tse2">上市水泥工業</option>
+</select>
+
+</div>
+
+<br><br>
+          <input type="submit" value="送出資料"  style="font-size:60px"></div>
+
+
+</form>
+</td>
+</tr>
+</table>
+
+
+
+<br>
+<br>
+
+
+		<h2 align="center">2020年9月期 六大指標資料  {{Xgroup}} by 評分高低</h2>
+		<table border="1" cellpadding="0" cellspacing="0" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">股票代碼</FONT></th>
+			<th align="center"><FONT SIZE="5">股票名稱</FONT></th>
+
+			<th align="center"><FONT SIZE="5">指1-收</FONT></th>
+			<th align="center"><FONT SIZE="5">指2-益</FONT></th>
+			<th align="center"><FONT SIZE="5">指3-淨</FONT></th>
+			<th align="center"><FONT SIZE="5">指4-E</FONT></th>
+			<th align="center"><FONT SIZE="5">指5-存</FONT></th>
+			<th align="center"><FONT SIZE="5">指6-流</FONT></th>
+			<th align="center"><FONT SIZE="5">平均</FONT></th>
+			<th align="center"><FONT SIZE="5">增減</FONT></th>
+			<th align="center"><FONT SIZE="5">時間</FONT></th>
+
+			{% for sign in signs %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ sign.id }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cStockID }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cStockName}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sign.cSign2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign4}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign5}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign6}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cAverageScore}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cLossGain}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.pubtime}}</FONT> </td>	
+				</tr>
+			{% endfor %}
+		</table>
+
+<br><br>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<tr>
+<td align="center"><a href="/usersmain/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>最新消息 - 使用者介面</title>
+	
+	
+</head>
+<body>
+	<div id="warp">
+		<div id="header">
+			<div class="toplogin">
+				{% block append %}{% endblock %}
+				<a href="/logout2/">
+				<FONT SIZE="6">登出使用者介面</FONT></a>
+			</div>
+			<br><br>
+		</div>
+		<div class="headings">
+		  <h2><FONT SIZE="6">☆最新消息 - 使用者介面☆程式可以做的，人類不須做，大量節省您寶貴的時間，專注在更重要的分析上☆</FONT></h2>
+		</div>  
+		{% block content %}{% endblock %}
+		<div id="footer"><FONT SIZE="4">&copy; Copyright 2020.7~NOW 財務指標程式選股</FONT></div>
+	</div>
+</body>
+</html>

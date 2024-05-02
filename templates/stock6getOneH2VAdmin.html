@@ -1,0 +1,267 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>寫入資料庫H2V</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+
+<br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="." method="POST" name="form1">
+    {% csrf_token %}
+    <div>
+	<FONT SIZE="7">請輸入台股代號：<input type="text" name="vstockid"  style="font-size:40px"></FONT> <br>
+
+
+	<FONT SIZE="7">請輸入台股名稱：<input type="text" name="vstockname"  style="font-size:40px"></FONT> <br>
+	<FONT SIZE="7">請輸入：<input type="text" name="vnewestseason"  style="font-size:40px"></FONT> <br>
+	<FONT SIZE="7">請輸入：<input type="text" name="vnewestmonth"  style="font-size:40px"></FONT> <br>
+	<FONT SIZE="7">請輸入：<input type="text" name="vindi1"  style="font-size:40px"></FONT> <br>
+	<FONT SIZE="7">請輸入：<input type="text" name="vindi2"  style="font-size:40px"></FONT> <br>
+	<FONT SIZE="7">請輸入：<input type="text" name="vindi3"  style="font-size:40px"></FONT> <br>
+	<FONT SIZE="7">請輸入：<input type="text" name="vindi4"  style="font-size:40px"></FONT> <br>
+	<FONT SIZE="7">請輸入：<input type="text" name="vindi5"  style="font-size:40px"></FONT> <br>
+	<FONT SIZE="7">請輸入：<input type="text" name="vindi6"  style="font-size:40px"></FONT> <br>
+
+	<FONT SIZE="7">請輸入：<input type="text" name="vscoreaverage"  style="font-size:40px"></FONT> <br>
+	<FONT SIZE="7">請輸入：<input type="text" name="vgainloss"  style="font-size:40px"></FONT> <br>
+
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past1mscore"  style="font-size:40px"></FONT> <br>
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past2mscore"  style="font-size:40px"></FONT> <br>
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past3mscore"  style="font-size:40px"></FONT> <br>
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past4mscore"  style="font-size:40px"></FONT> <br>
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past5mscore"  style="font-size:40px"></FONT> <br>
+
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past6mscore"  style="font-size:40px"></FONT> <br>
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past7mscore"  style="font-size:40px"></FONT> <br>
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past8mscore"  style="font-size:40px"></FONT> <br>
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past9mscore"  style="font-size:40px"></FONT> <br>
+    <FONT SIZE="7">請輸入評分：<input type="text" name="past10mscore"  style="font-size:40px"></FONT> <br>
+
+
+          <input type="submit" value="送出資料"  style="font-size:40px"></div>
+
+
+
+</form>
+</td>
+</tr>
+</table>
+
+
+<br>
+<br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<caption><FONT SIZE="6">單家公司評分資料庫歷史紀錄（寫入資料庫）</FONT></caption>
+
+<tr>
+<td style="background-color:#9999CC;" align="center"><div><FONT SIZE="7">台股代號：</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+
+
+<td style="background-color:#009393;" align="center"><div><FONT SIZE="7">1.收</FONT></div></td>
+
+<td style="background-color:#009393;" align="center"><div><FONT SIZE="7">2.益</FONT></div></td>
+
+<td style="background-color:#009393;" align="center"><div><FONT SIZE="7">3.淨</FONT></div></td>
+
+<td style="background-color:#009393;" align="center"><div><FONT SIZE="7">4.E</FONT></div></td>
+
+<td style="background-color:#009393;" align="center"><div><FONT SIZE="7">5.存</FONT></div></td>
+
+<td style="background-color:#009393;" align="center"><div><FONT SIZE="7">6.流</FONT></div></td>
+
+</tr>
+
+
+
+
+
+<tr>
+<td style="background-color:#9999CC;" align="center"><div><FONT SIZE="7">股票名稱：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+
+</tr>
+
+<tr>
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">20年<br>12月<br>和Q4期</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{q4score}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{q4sign2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q4sign1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q4sign3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q4sign4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q4sign5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q4sign6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{dailyprice20q4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{lg12_11}}</FONT></div></td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">20年<br>11月期</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{s11score}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{s11sign2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{s11sign1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{s11sign3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{s11sign4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{s11sign5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{s11sign6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{dailyprice2011}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{lg11_10}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">20年<br>10月期</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{q3score}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{q3sign2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q3sign1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q3sign3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q3sign4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q3sign5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{q3sign6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{dailyprice2010}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{lg10_9}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">20年9月期：</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{s9score}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">20年8月期：</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{s8score}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">20年7月和Q2期：</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{q2score}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+</tr>
+
+
+
+
+
+<tr>
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">20年6月期：</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{s6score}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+</tr>
+
+
+
+</table>
+
+
+
+<br>
+<br>
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<tr>
+<td align="center"><a href="/usersmain/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+
+</table>
+
+</body>
+
+</html>

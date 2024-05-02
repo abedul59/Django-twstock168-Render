@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>訂閱者 - 管理介面</title>
+	
+	
+</head>
+<body>
+	
+
+
+
+
+
+
+
+
+<div id="warp">
+		<div id="header">
+			<div class="toplogin">
+
+				<a href="/logout/">
+				<FONT SIZE="7">登出訂閱者 - 我的最愛管理介面</FONT></a>
+			</div>
+			
+		</div>
+
+
+		<div class="headings">
+		  <h2><FONT SIZE="7">訂閱者 - 最新消息</FONT></h2>
+		</div>  
+		{% block content0 %}{% endblock %}
+
+		<br><br>
+
+
+				
+		<div id="warp2">{% block append %}{% endblock %}
+				<br><br></div>
+
+		<div class="headings">
+		  <h2><FONT SIZE="7">訂閱者 - 我的最愛 股票管理介面</FONT></h2>
+		</div>  
+
+
+		{% block content %}{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div id="footer"><FONT SIZE="5">&copy; Copyright 2021 六大指標智慧系統</FONT></div>
+	</div>
+</body>
+</html>

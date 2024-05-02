@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有資料</title>
+	</head>
+	<body>
+		<h2>顯示 2020年6月公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</h2>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">股票代碼</FONT></th>
+			<th align="center"><FONT SIZE="5">股票名稱</FONT></th>
+			<th align="center"><FONT SIZE="5">108PER_H</FONT></th>
+			<th align="center"><FONT SIZE="5">107PER_H</FONT></th>
+			<th align="center"><FONT SIZE="5">106PER_H</FONT></th>
+			<th align="center"><FONT SIZE="5">105PER_H</FONT></th>
+			<th align="center"><FONT SIZE="5">104PER_H</FONT></th>
+			
+			<th align="center"><FONT SIZE="5">108PER_L</FONT></th>
+			<th align="center"><FONT SIZE="5">107PER_L</FONT></th>
+			<th align="center"><FONT SIZE="5">106PER_L</FONT></th>
+			<th align="center"><FONT SIZE="5">105PER_L</FONT></th>
+			<th align="center"><FONT SIZE="5">104PER_L</FONT></th>			
+
+			<th align="center"><FONT SIZE="5">平均PER_H</FONT></th> 
+			<th align="center"><FONT SIZE="5">平均PER_L</FONT></th>				
+			<th align="center"><FONT SIZE="5">資料獲取時間</FONT></th>
+			{% for sta in stas %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ sta.id }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cStockID }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cStockName}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_H1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_H2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_H3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_H4}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_H5}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_L1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_L2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_L3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_L4}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_L5}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_H_average}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sta.cPER_L_average}}</FONT> </td>					
+					<td align="center"><FONT SIZE="5">{{ sta.pubtime}}</FONT> </td>	
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

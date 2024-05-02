@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>最新消息 - 管理介面</title>
+	
+
+</head>
+<body>
+	<div id="warp">
+		<div id="header">
+			<div class="toplogin">
+				{% block append %}{% endblock %}
+				<br><br><br>
+				<a href="/logout/">
+				<FONT SIZE="7">登出管理介面</FONT></a>
+			</div>
+			
+		</div>
+		<div class="headings">
+		  <h2><FONT SIZE="7">最新消息 - 管理介面</FONT></h2>
+		</div>  
+		{% block content %}{% endblock %}
+		<div id="footer"><FONT SIZE="5">&copy; Copyright 2020.7 ~ NOW 財務指標程式選股</FONT></div>
+	</div>
+</body>
+</html>

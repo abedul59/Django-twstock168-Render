@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有使用者資料</title>
+	</head>
+	<body>
+		<h2>顯示所有使用者資料</h2>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">使用者帳號</FONT></th>
+			<th align="center"><FONT SIZE="5">姓</FONT></th>
+			<th align="center"><FONT SIZE="5">名</FONT></th>
+		
+			<th align="center"><FONT SIZE="5">email</FONT></th>
+			<th align="center"><FONT SIZE="5">上次登入時間</FONT></th>
+			<th align="center"><FONT SIZE="5">註冊時間</FONT></th>
+			
+
+			{% for user in users %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ user.id }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ user.username }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ user.last_name}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ user.first_name}}</FONT> </td>
+				
+					<td align="center"><FONT SIZE="5">{{ user.email}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ user.last_login}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ user.date_joined}}</FONT> </td>
+
+
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

@@ -1,0 +1,1016 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>檢驗6大指標 - 全部</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="/DC_Stock6Admin/" method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid"  style="font-size:40px"></FONT> <br><br>
+          <input type="submit" value="送出資料"  style="font-size:60px"></div>
+
+
+
+</td>
+</tr>
+</table>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<caption><FONT SIZE="6">六大指標 - 全部 多重檢驗</FONT></caption>
+
+
+<tr>	
+<td style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">台股代號：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">股票名稱：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+</tr>
+
+
+
+</table>
+
+
+
+ 	
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">營收詳細資料</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年月</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：%</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">{{b6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb6}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FF0080;"><div><FONT SIZE="7">六個月平均</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb9}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center" style="background-color:#FF0080;"><div><FONT SIZE="7">最新一個月月增率</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{nb10}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">評等</FONT></div></td> <td><div align="center"><FONT SIZE="7">請參考下面多重驗證</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">營收指標多重驗證（-1表示「不符合」，「符合」會呈現各指標分數1-4）</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">指標條件</FONT></div></td> <td align="center"><div><FONT SIZE="7">條件說明</FONT></div></td> <td align="center"><div><FONT SIZE="7">分數</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去六個月皆為正數且平均超過25%，且最近一個月的年增率與上個月比為增加或持平（>=0）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1AA1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultAA2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A1</FONT></div></td> <td align="center"><div><FONT SIZE="5">或過去六個月平均超過25%，但最近一個月出現小幅衰退。（年增率較上個月下跌幅度在50%以內）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1A1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A2</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去六個月皆為正數平均10-25%，且最近一個月的年增率與上個月比較為增加或持平（>=0）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1A2}}</FONT></div></td>
+</tr>
+
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去六個月曾經出現單月負成長</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1BB1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1BB2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB3</FONT></div></td> <td align="center"><div><FONT SIZE="5">無法歸類的情況</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1BB3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去六個月平均為正數，但最近三個月出現遞減（不論幅度）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1B1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1B2}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去6個月平均數為負</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1C1}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C2</FONT></div></td> <td align="center"><div><FONT SIZE="5">或最近一個月為負數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS1C2}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">營益率詳細資料</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：%</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{a1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{a1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{a2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{a2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{a3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{a3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{a4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{a4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{a5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{a5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{a6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{a6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{a7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{a7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{a8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{a8}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#2894FF;"><div><FONT SIZE="7">近四季平均</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{a9}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#2894FF;"><div><FONT SIZE="7">最新一季季增率</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{a10p}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">評等</FONT></div></td> <td><div align="center"><FONT SIZE="7">請參考下面多重驗證</FONT></div></td>
+</tr>
+</table>
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">營益率指標多重驗證（-1表示「不符合」，「符合」會呈現各指標分數1-4）</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">指標條件</FONT></div></td> <td align="center"><div><FONT SIZE="7">條件說明</FONT></div></td> <td align="center"><div><FONT SIZE="7">分數</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去四季皆維持穩定沒有下跌，且平均在15%以上</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2AA1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA2</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去四季皆維持穩定沒有下降，且平均在10-15%，最近一季呈現上升趨勢</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2AA2}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去四季皆維持穩定沒有下降，且平均在10-15%</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2A1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A2</FONT></div></td> <td align="center"><div><FONT SIZE="5">或過去四季皆維持穩定沒有下跌，平均只有5-10%，但最近一季呈現上升趨勢</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2A2}}</FONT></div></td>
+</tr>
+
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去四季曾出現季與季之間下跌20%以上，但不包括最近一季 1</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2BB1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB2</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去四季曾出現季與季之間下跌20%以上，但不包括最近一季 2</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultBB2}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB3</FONT></div></td> <td align="center"><div><FONT SIZE="5">無法歸類的情況</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2BB3}}</FONT></div></td>
+</tr>
+<tr>
+<td align="center"><div><FONT SIZE="7">B1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近一季比上一季跌20%以上</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2B1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B2</FONT></div></td> <td align="center"><div><FONT SIZE="5">或不論漲跌幅，過去四季平均營益率在5%以下</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2B2}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C1</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去四季的平均為負</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2C1}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C2</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近一季為負</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS2C2}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+
+
+<br>
+<br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">稅後淨利年增率詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：百萬 新台幣</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{c7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{c8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{c8}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：%</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#B766AD;"><div><FONT SIZE="7">最新1季年增率</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{pc9}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#B766AD;"><div><FONT SIZE="7">最新2季年增率</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{pc10}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#B766AD;"><div><FONT SIZE="7">最新3季年增率</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{pc11}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">評等</FONT></div></td> <td><div align="center"><FONT SIZE="7">請參考以下多重檢驗</FONT></div></td>
+</tr>
+
+</table>
+
+
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">稅後淨利YoY指標多重驗證（-1表示「不符合」，「符合」會呈現各指標分數1-4）</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">指標條件</FONT></div></td> <td align="center"><div><FONT SIZE="7">條件說明</FONT></div></td> <td align="center"><div><FONT SIZE="7">分數</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA1</FONT></div></td> <td align="center"><div><FONT SIZE="5">近三季皆為正數且最近一季呈現成長</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3AA1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA2</FONT></div></td> <td align="center"><div><FONT SIZE="5">近三季皆在50%以上（遞減也無妨）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3AA2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A1</FONT></div></td> <td align="center"><div><FONT SIZE="5">近兩季皆為正數且沒有出現大幅衰退</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3A1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3A2}}</FONT></div></td>
+</tr>
+
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近一季由負轉正</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3BB1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB2</FONT></div></td> <td align="center"><div><FONT SIZE="5">近兩季皆為正數但最近一季出現50%以上的衰退</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3BB2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB3</FONT></div></td> <td align="center"><div><FONT SIZE="5">無法歸類的情況</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3BB3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B1</FONT></div></td> <td align="center"><div><FONT SIZE="5">近三季遞減（且最近一季税後淨利年增率低於50%）</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3B1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B2</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近一季出現負數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3B2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B3</FONT></div></td> <td align="center"><div><FONT SIZE="5">過去四季出現兩季負數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3B3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近兩季為負數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3C1}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS3C2}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">EPS詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：元</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{d7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{d8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{d8}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">評等</FONT></div></td> <td><div align="center"><FONT SIZE="7">請參考下面多重驗證</FONT></div></td>
+</tr>
+</table>
+
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">EPS指標多重驗證（-1表示「不符合」，「符合」會呈現各指標分數1-4）</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">指標條件</FONT></div></td> <td align="center"><div><FONT SIZE="7">條件說明</FONT></div></td> <td align="center"><div><FONT SIZE="7">分數</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季累積超過5元</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4AA1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4AA2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季累積3-5元</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4A1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4A2}}</FONT></div></td>
+</tr>
+
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季累積1-3元</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4BB1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4BB2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB3</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4BB3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B1</FONT></div></td> <td align="center"><div><FONT SIZE="5">不管最近四季累積數，最近一季出現虧損者</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4B1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B2</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季累積超過0元</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4B2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B3</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4B3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季累積虧損</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4C1}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS4C2}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+<br>
+<br>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">存貨週轉率詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：次</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{e7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">{{e8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{e8}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">評等</FONT></div></td> <td><div align="center"><FONT SIZE="7">請參考以下多重驗證</FONT></div></td>
+</tr>
+
+</table>
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">存貨週轉率指標多重驗證（-1表示「不符合」，「符合」會呈現各指標分數1-4）</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">指標條件</FONT></div></td> <td align="center"><div><FONT SIZE="7">條件說明</FONT></div></td> <td align="center"><div><FONT SIZE="7">分數</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季穩定不下降，且平均在1.5次以上</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5AA1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5AA2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季穩定不下降，且平均在1.5次以下</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5A1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5A2}}</FONT></div></td>
+</tr>
+
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季出現連續兩季下跌，累積跌幅在20%以上1</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5BB1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB2</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季出現連續兩季下跌，累積跌幅在20%以上2</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5BB2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB3</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5BB3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近四季曾經出現單季20%以上的跌幅</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5B1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5B2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B3</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5B3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近一季出現20%以上的跌幅</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5C1}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">不評分1</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5No1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">不評分2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5No2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">不評分3</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS5No3}}</FONT></div></td>
+</tr>
+</table>
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">現金流量詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td> <td align="center"><div><FONT SIZE="7">單位：百萬 新台幣</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f1N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f2N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f3N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f4N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f5N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f6N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f7N}}</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f7}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">{{f8N}}</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{f8}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center" style="background-color:#FFFFAA;"><div><FONT SIZE="7">四季累積</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f9}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FFFFAA;"><div><FONT SIZE="7">六季累積</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{f10}}</FONT></div></td>
+</tr>
+
+
+
+
+
+<tr>
+<td align="center" style="background-color:#D6D6AD;"><div><FONT SIZE="7">評等</FONT></div></td> <td><div align="center"><FONT SIZE="7">請參考以下多重驗證</FONT></div></td>
+</tr>
+
+</table>
+
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">現金流量指標多重驗證（-1表示「不符合」，「符合」會呈現各指標分數1-4）</FONT></caption>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">指標條件</FONT></div></td> <td align="center"><div><FONT SIZE="7">條件說明</FONT></div></td> <td align="center"><div><FONT SIZE="7">分數</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA1</FONT></div></td> <td align="center"><div><FONT SIZE="5">連續六季出現正數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS6AA1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">AA2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS6AA2}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近六季累積為正數且最近四季累積為正數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS6A1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">A2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS6A2}}</FONT></div></td>
+</tr>
+
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近六季累積為負數且最近四季累積為正數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS6BB1}}</FONT></div></td>
+</tr>
+
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">BB2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS6BB2}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近六季累積為正數且最近四季累積為負數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS6B1}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">B2</FONT></div></td> <td align="center"><div><FONT SIZE="5"></FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS6B2}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">C1</FONT></div></td> <td align="center"><div><FONT SIZE="5">最近六季累積為負數且最近四季累積為負數</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{resultS6C1}}</FONT></div></td>
+</tr>
+
+
+
+</table>
+
+
+
+<br>
+<br>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/usersmain/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+</body>
+
+</html>

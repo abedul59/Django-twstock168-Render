@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有資料</title>
+	</head>
+	<body>
+		<h2>顯示 2020年Q3財報和10月營收公佈後評分2.5分以上股票的股本變化率 所有資料</h2>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">股票代碼</FONT></th>
+			<th align="center"><FONT SIZE="5">股票名稱</FONT></th>
+			<th align="center"><FONT SIZE="5">2020Q3</FONT></th>
+			<th align="center"><FONT SIZE="5">2020Q2</FONT></th>
+			<th align="center"><FONT SIZE="5">2020Q1</FONT></th>
+			<th align="center"><FONT SIZE="5">2019Q4</FONT></th>
+			<th align="center"><FONT SIZE="5">2019Q3</FONT></th>
+			<th align="center"><FONT SIZE="5">2019Q2</FONT></th>
+			<th align="center"><FONT SIZE="5">2019Q1</FONT></th>
+			<th align="center"><FONT SIZE="5">2018Q4</FONT></th>
+
+			<th align="center"><FONT SIZE="5">最新一季YoY</FONT></th>
+			<th align="center"><FONT SIZE="5">最新一季SoS</FONT></th>
+			<th align="center"><FONT SIZE="5">資料獲取時間</FONT></th>
+			{% for cap in caps %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{cap.id}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cStockID}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cStockName}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cCap1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cCap2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cCap3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cCap4}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cCap5}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cCap6}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cCap7}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cCap8}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cLatestYoY}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.cLatestMoM}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{cap.pubtime}}</FONT> </td>	
+				</tr>
+
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

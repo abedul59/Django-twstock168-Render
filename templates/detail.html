@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+		<div class="contentbox">
+			<table width="100%">
+			<tr>
+			  <th align="left"><span class="typeblock"><FONT SIZE="5">{{category}}</FONT>&nbsp;&nbsp;</span>&nbsp;&nbsp;<FONT SIZE="7">{{title}}</FONT></th>
+			</tr>
+			<tr>
+			  <td><span class="newsinfo">
+				&nbsp;<FONT SIZE="5">{{pubtime}}</FONT>
+				&nbsp;&nbsp;<FONT SIZE="5">{{nickname}}</FONT> 
+				<p>&nbsp;&nbsp;<FONT SIZE="7">{{message}}</FONT></p>
+			  </td>
+			</tr>
+			</table>
+		
+		</div>
+{% endblock %}

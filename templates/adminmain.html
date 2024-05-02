@@ -1,0 +1,2086 @@
+﻿{% extends "baseadmin.html" %}
+
+
+
+
+
+
+
+{% block append %}
+	<a href="/newsadd/" title="新增公告">
+	<FONT SIZE="7">新增公告</FONT></a>
+	<br><br><br>
+	<a href="/admin/" title="進入管理後台">
+	<FONT SIZE="7">進入管理後台</FONT></a>
+{% endblock %}
+
+{% block content %}
+	<div class="contentbox">
+		<table width="100%">
+		<tr>
+		  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="6">分類</FONT></th>
+		  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">標題</FONT></th>
+		  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">時間</FONT></th>
+		  <th align="center" style="background-color:#DDDDFF;"><FONT SIZE="6">編輯</FONT></th>
+		</tr>
+		{% for unit0 in newsunits0 %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock">【{{ unit0.catego }}】</div></FONT></td>
+			<td><FONT SIZE="6"><a href="/newsedit/{{unit0.id}}/">{{ unit0.title }}</a></FONT></td>
+			<td align="center"><FONT SIZE="5">{{ unit0.pubtime }}</FONT></td>
+			<td><FONT SIZE="6">
+				<a href="/newsedit/{{unit0.id}}/" title="公告編輯">E</a>
+				<a href="/newsdelete/{{unit0.id}}/" title="公告刪除">D</a></FONT>
+			</td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前新聞資料庫中沒有任何資料！</FONT></p>
+			</div>
+		{% endfor %}
+
+
+
+
+
+		</table>
+
+		<br><br>
+
+		<table width="100%"><caption><FONT SIZE="6">美國公債殖利率觀察儀表板</FONT></caption>
+
+
+
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="3">利率上揚</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="3">資金緊俏</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="3">資金緊俏</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨加劇</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨加劇</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨加劇</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨加劇</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="3">景氣上揚</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="3">景氣上揚</FONT></th>
+
+			</tr>
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="3">利率下跌</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="3">資金寬鬆</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="3">資金寬鬆</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨趨緩</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨趨緩</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨趨緩</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">通膨趨緩</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="3">景氣趨緩</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="3">景氣趨緩</FONT></th>
+
+			</tr>
+
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="4">代表意義</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">資金寬緊</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">資金寬緊</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">通膨預期</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">通膨預期</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">通膨預期</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">通膨預期</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">景氣榮枯</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">景氣榮枯</FONT></th>
+
+			</tr>
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="6">債券天期</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6"><a href="https://tradingeconomics.com/united-states/3-month-bill-yield">3M</a></FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6"><a href="https://tradingeconomics.com/united-states/6-month-bill-yield">6M</a></FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6"><a href="https://tradingeconomics.com/united-states/2-year-note-yield">2Y</a></FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6"><a href="https://tradingeconomics.com/united-states/3-year-note-yield">3Y</a></FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6"><a href="https://tradingeconomics.com/united-states/5-year-note-yield">5Y</a></FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6"><a href="https://tradingeconomics.com/united-states/7-year-note-yield">7Y</a></FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="6"><a href="https://tradingeconomics.com/united-states/government-bond-yield">10Y</a></FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="6"><a href="https://tradingeconomics.com/united-states/30-year-bond-yield">30Y</a></FONT></th>
+			</tr>
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="4">一週漲跌幅</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">{{Lists3m.0}}</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">{{Lists6m.0}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists2y.0}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists3y.0}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists5y.0}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists7y.0}}</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">{{Lists10y.0}}</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">{{Lists30y.0}}</FONT></th>
+			</tr>
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="4">一個月漲跌幅</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">{{Lists3m.1}}</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">{{Lists6m.1}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists2y.1}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists3y.1}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists5y.1}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists7y.1}}</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">{{Lists10y.1}}</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">{{Lists30y.1}}</FONT></th>
+			</tr>
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="4">半年漲跌幅</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">{{Lists3m.2}}</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">{{Lists6m.2}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists2y.2}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists3y.2}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists5y.2}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists7y.2}}</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">{{Lists10y.2}}</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">{{Lists30y.2}}</FONT></th>
+			</tr>
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="4">1年漲跌幅</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">{{Lists3m.3}}</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="4">{{Lists6m.3}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists2y.3}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists3y.3}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists5y.3}}</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="4">{{Lists7y.3}}</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">{{Lists10y.3}}</FONT></th>
+			  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="4">{{Lists30y.3}}</FONT></th>
+			</tr>
+			{% for unitm in newsunitsm %}
+				<tr class="alt">
+				<td align="center"><FONT SIZE="5"><div class="typeblock">【{{ unitm.cDate }}】</div></FONT></td>
+				<td align="center"><FONT SIZE="5"><div class="typeblock">{{ unitm.cInvertedYieldCurve3m }}</div></FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve6m }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve2y }}</div></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve3y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve5y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve7y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve10y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve30y }}</FONT></td>
+			</td>
+				</tr>
+			{% empty %}
+				<div class="status warning">
+					<p><FONT SIZE="6"><span>注意</span> 目前美國公債殖利率觀察儀表板中沒有任何資料！</FONT></p>
+				</div>
+			{% endfor %}
+		
+		
+		
+		
+		
+			</table>
+		
+		<br><br>
+
+		<table width="100%"><caption><FONT SIZE="6">總經指標A</FONT></caption>
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="3">公布時間</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每天公布</FONT></th>
+
+			</tr>
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="6">資料時間</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">美國公債 3 Month殖利率</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">美國公債 10 Year殖利率</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">美國公債3M-10Y 利差</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">CRB指數</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">CRB半年漲跌幅</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">CRB一年漲跌幅</FONT></th>
+
+			</tr>
+			{% for unitm in newsunitsm %}
+				<tr class="alt">
+				<td align="center"><FONT SIZE="5"><div class="typeblock">【{{ unitm.cDate }}】</div></FONT></td>
+				<td align="center"><FONT SIZE="5"><div class="typeblock">{{ unitm.cInvertedYieldCurve3m }}</div></FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cInvertedYieldCurve10y }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cIYC10yminus3m }}</div></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cCRBindex }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cCRBhalfyear }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm.cCRBoneyear }}</FONT></td>
+			</td>
+				</tr>
+			{% empty %}
+				<div class="status warning">
+					<p><FONT SIZE="6"><span>注意</span> 目前總經資料庫A中沒有任何資料！</FONT></p>
+				</div>
+			{% endfor %}
+		
+		
+		
+		
+		
+			</table>
+		
+		<br><br>
+
+
+		<table width="100%"><caption><FONT SIZE="6">總經指標B</FONT></caption>
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="3">公布時間</FONT></th>
+			  
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="3">每月第一週公布下一年上月數據</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每月24日公布上月數據</FONT></th>			  
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每月第七個營業日公布上月數據</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			</tr>
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="6">資料<br>時間</FONT></th>
+			  
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">衰退<br>時間</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">衰退<br>機率</FONT></th>
+			  
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">M1b<br>資料時間</FONT></th>			  
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">M1b<br>年增率</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">M1b<br>數據（億元）</FONT></th>	
+			  		  
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">上市總市值<br>公佈資料時間</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">上市總市值<br>數據（百萬元）</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">市值<br>貨幣比</FONT></th>
+			</tr>
+			{% for unitm2 in newsunitsm2 %}
+				<tr class="alt">
+				<td><FONT SIZE="5"><div class="typeblock">【{{ unitm2.cDate }}】</div></FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cRecesTime }}</FONT></td>		
+				<td align="center"><FONT SIZE="5">{{ unitm2.cRecesNum }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cM1bTime }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cM1bYoY }}</FONT></td>		
+				<td align="center"><FONT SIZE="5">{{ unitm2.cM1bNum }}</FONT></td>	
+				<td align="center"><FONT SIZE="5">{{ unitm2.cMVTime}}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cMarketVaule }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm2.cMVvsM1b }}</FONT></td>
+			</td>
+				</tr>
+			{% empty %}
+				<div class="status warning">
+					<p><FONT SIZE="6"><span>注意</span> 目前總經資料庫B中沒有任何資料！</FONT></p>
+				</div>
+			{% endfor %}
+		
+		
+		
+		
+		
+			</table>
+
+		
+		<br><br>
+
+		<table width="100%"><caption><FONT SIZE="6">總經指標C</FONT></caption>
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="3">公布時間</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="3">每月第一個週五公布上月數據</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每月第三週（約20日）公佈上月數據</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每月第二週週五公佈當月初值</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每月最後週五公佈當月終值</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="3">每月最後週公佈上月數據</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="3"></FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3">每月最後一天公佈當月數據</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="3"></FONT></th>
+
+			</tr>
+
+
+			<tr>
+			  <th align="center" style="background-color:#C4E1FF;"><FONT SIZE="6">資料<br>更新時間</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">美國<br>失業率</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">美國<br>領先指標<br>公佈時間</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">美國<br>領先<br>指標</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">密大消費者信心指數<br>公佈時間</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">密西根大學<br>消費者信心指數</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">最新美國<br>耐久財新訂單<br>年增率</FONT></th>
+			  <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">次新美國<br>耐久財新訂單<br>年增率</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">中國<br>PMI<br>公佈時間</FONT></th>
+			  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">中國<br>PMI</FONT></th>
+
+			</tr>
+			{% for unitm3 in newsunitsm3 %}
+				<tr class="alt">
+				<td align="center"><FONT SIZE="5"><div class="typeblock">【{{ unitm3.cDate }}】</div></FONT></td>
+				<td align="center"><FONT SIZE="5"><div class="typeblock">{{ unitm3.cUSUnemploymentRate }}</div></FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cUSLeadingIndicatorTime }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cUSLeadingIndicator }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cMichiganComsumerTime }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cMichiganComsumer }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cDurableGoodsNewOrder1 }}</FONT></td>		
+				<td align="center"><FONT SIZE="5">{{ unitm3.cDurableGoodsNewOrder2 }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cChinaPMITime }}</FONT></td>
+				<td align="center"><FONT SIZE="5">{{ unitm3.cChinaPMI }}</FONT></td>
+			</td>
+				</tr>
+			{% empty %}
+				<div class="status warning">
+					<p><FONT SIZE="6"><span>注意</span> 目前總經資料庫C中沒有任何資料！</FONT></p>
+				</div>
+			{% endfor %}
+		
+		
+		
+		
+		
+			</table>
+	</div>
+	
+	
+		<br><br>
+		
+		
+
+	<a href="/common_enterStockFavAdmin/test168/" title="新增股票 至 我的最愛">
+	<FONT SIZE="7">新增股票 至 我的最愛</FONT></a>
+	<br><br><br>
+	<a href="/common_StoFavlistall/test168/" title="列出所有 我的最愛 股票">
+	<FONT SIZE="7">列出所有 我的最愛 股票</FONT></a>
+
+
+<br><br>
+
+<div class="contentbox">
+		
+
+<table width="100%"><caption><FONT SIZE="6">貨幣寬鬆時期</FONT></caption>
+		<tr>		  
+		<th align="center" style="background-color:#D2A2CC;"><FONT SIZE="6">代碼</FONT></th>
+		  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="6">名稱</FONT></th>
+
+
+
+
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>EPS</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">最新<br>價格</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最高價</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最低價</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">上面<br>空間</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">下面<br>風險</FONT></th>
+		 <th align="center" style="background-color:#64A600;"><FONT SIZE="6">風險<br>報酬<br>比率</FONT></th>
+
+
+
+		  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">建置<br>時間</FONT></th>
+		  <th align="center" style="background-color:#FF5151;"><FONT SIZE="6">刪除</FONT></th>
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock"><a href="{{ unit.cDBURL}}">【{{ unit.cStockID}}】</a></div></FONT></td>
+			<td><FONT SIZE="6">{{ unit.cStockName }}</FONT></td>
+
+
+
+
+
+			<td><FONT SIZE="6">{{ unit.cPredict_EPS}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cTodayClose}}</FONT></td>
+
+			<td><FONT SIZE="6">{{ unit.cPredict_high_price}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cPredict_low_price}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_up_profit}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_down_loss}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cRisk_reward}}</FONT></td>
+
+
+
+			<td align="center"><FONT SIZE="5">{{ unit.pubtime }}</FONT></td>
+			<td><FONT SIZE="6">
+
+				<a href="/newsdelete_common/test168/{{unit.id}}/" title="股票刪除">D</a></FONT>
+			</td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前我的最愛股票資料庫中沒有任何資料！</FONT></p>
+			</div>
+		{% endfor %}
+
+
+
+
+
+		</table>
+
+<br><br>
+
+<table width="100%"><caption><FONT SIZE="6">貨幣緊縮時期（本益比往下修正30%）</FONT></caption>
+		<tr>		  
+		<th align="center" style="background-color:#D2A2CC;"><FONT SIZE="6">代碼</FONT></th>
+		  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="6">名稱</FONT></th>
+
+
+
+
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>EPS</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">最新<br>價格</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最高價</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最低價</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">上面<br>空間</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">下面<br>風險</FONT></th>
+		 <th align="center" style="background-color:#64A600;"><FONT SIZE="6">風險<br>報酬<br>比率</FONT></th>
+
+
+
+		  <th align="center" style="background-color:#D7FFEE;"><FONT SIZE="6">建置<br>時間</FONT></th>
+		  <th align="center" style="background-color:#FF5151;"><FONT SIZE="6">刪除</FONT></th>
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock"><a href="{{ unit.cDBURL}}">【{{ unit.cStockID}}】</a></div></FONT></td>
+			<td><FONT SIZE="6">{{ unit.cStockName }}</FONT></td>
+
+
+
+
+
+			<td><FONT SIZE="6">{{ unit.cPredict_EPS}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cTodayClose}}</FONT></td>
+
+			<td><FONT SIZE="6">{{ unit.cPredict_high_price_down30}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cPredict_low_price_down30}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_up_profit_down30}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_down_loss_down30}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cRisk_reward_down30}}</FONT></td>
+
+
+
+			<td align="center"><FONT SIZE="5">{{ unit.pubtime }}</FONT></td>
+			<td><FONT SIZE="6">
+
+				<a href="/newsdelete_common/test168/{{unit.id}}/" title="股票刪除">D</a></FONT>
+			</td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前我的最愛股票資料庫中沒有任何資料！</FONT></p>
+			</div>
+		{% endfor %}
+
+
+
+
+
+		</table>
+
+<br><br>
+
+<table width="100%">
+		<tr>		  
+
+		  <th align="center" style="background-color:#D2A2CC;"><FONT SIZE="6">名稱</FONT></th>
+
+
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">最新<br>評分</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">上個月<br>評分</FONT></th>
+		 <th align="center" style="background-color:#D9FFFF;"><FONT SIZE="6">上上<br>個月<br>評分</FONT></th>
+
+
+
+
+		 <th align="center" style="background-color:#96FED1;"><FONT SIZE="6">EPS<br>達成率</FONT></th>
+		 <th align="center" style="background-color:#96FED1;"><FONT SIZE="6">股本<br>變動率<br>（季對季）</FONT></th>
+		 <th align="center" style="background-color:#96FED1;"><FONT SIZE="6">EPS或<br>營益率<br>創新高</FONT></th>
+		 <th align="center" style="background-color:#96FED1;"><FONT SIZE="6">本益比<br>區間<br>變動率<br>在30%內</FONT></th>
+
+
+
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+
+			<td><FONT SIZE="6">{{ unit.cStockName }}</FONT></td>
+
+
+			<td><FONT SIZE="6">{{ unit.cScore1st}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cScore2nd}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cScore3rd}}</FONT></td>
+
+
+
+
+			<td><FONT SIZE="6">{{ unit.cEPSach}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cStCap}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cEPSnPrf}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cPERstab}}</FONT></td>
+
+
+
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前我的最愛股票資料庫中沒有任何資料！</FONT></p>
+			</div>
+		{% endfor %}
+
+
+
+
+
+		</table>
+</div>
+
+<br><br>
+
+<table width="100%">
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="/viewsGetUSBondYield/"><FONT SIZE="7">查詢美國公債最新殖利率</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="/viewsGetUSBondYieldAdmin/"><FONT SIZE="7">查詢美國公債最新殖利率（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="/viewsGetMacroWaveAdmin/"><FONT SIZE="7">更新總體經濟資料（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://blog.moneydj.com/joe/"><FONT SIZE="7">Joe Strategy</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="http://www.izaax.net/blog/"><FONT SIZE="7">Izaax Blog</FONT></a>
+		 </th>
+		</tr>
+		<tr>
+
+		 <th align="left" style="background-color:#FF79BC;">
+		 <a href="https://docs.google.com/presentation/d/1aLYrcS6IUaV9QwuAzXz48G5ySMeUZ4b4/edit?usp=sharing&ouid=102036749949652811764&rtpof=true&sd=true"><FONT SIZE="7">顯示十項總經指標說明</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://www.cnyes.com/bond/"><FONT SIZE="7">美國逆殖利率曲線</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://www.newyorkfed.org/research/capital_markets/ycfaq.html#/overview"><FONT SIZE="7">FED紐約分行:未來一年衰退的機率</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://www.cbc.gov.tw/tw/cp-523-975-DEE11-1.html"><FONT SIZE="7">台灣M1B年增率（期底）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://www.twse.com.tw/zh/statistics/statisticsList?type=02&subType=199"><FONT SIZE="7">台灣(上市)市值貨幣比（上市公司總市值 月查詢）</FONT></a>
+		 </th>
+		</tr>h
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://www.moneydj.com/funddj/yl/BFRK01.djhtm?a=ei020023"><FONT SIZE="7">美國失業率</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://fred.stlouisfed.org/series/UNRATE/"><FONT SIZE="7">FED聖路易分行:失業率(季調)</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://www.macromicro.me/charts/752/us-bond-cb-leading-index"><FONT SIZE="7">美國領先指標1</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://www.conference-board.org/topics/us-leading-indicators"><FONT SIZE="7">美國領先指標2</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://www.moneydj.com/funddj/yl/BFRK01.djhtm?a=EI020007"><FONT SIZE="7">美國密西根大學消費者信心指數</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="http://www.cnyes.com/futures/html5chart/CRB.html"><FONT SIZE="7">CRB指數</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="http://www.moneydj.com/funddj/yl/BFRK01.djhtm?a=EI020147"><FONT SIZE="7">美國耐久財新接訂單</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://fred.stlouisfed.org/series/DGORDER"><FONT SIZE="7">FED聖路易分行:耐久財新接訂單(季調)</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#366CDB;">
+		 <a href="https://stock-ai.com/eom-1-cnPMI"><FONT SIZE="7">中國官方PMI</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#FF79BC;">
+		 <a href="/UsersListAll/"><FONT SIZE="7">顯示所有會員資料</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/ListallStockFavDB/"><FONT SIZE="7">所有自選股歷史資料庫一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/test168_StoFavlistall/"><FONT SIZE="7">test168自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/bobmax_StoFavlistall/"><FONT SIZE="7">bobmax自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/deno36_StoFavlistall/"><FONT SIZE="7">deno36自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/donhonlin_StoFavlistall/"><FONT SIZE="7">donhonlin自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/goldsilver_StoFavlistall/"><FONT SIZE="7">goldsilver自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/jonyi_StoFavlistall/"><FONT SIZE="7">jonyi自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/hyeth_StoFavlistall/"><FONT SIZE="7">hyeth自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/hakkai_StoFavlistall/"><FONT SIZE="7">hakkai自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/bakylews_StoFavlistall/"><FONT SIZE="7">bakylews自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/chenchi_StoFavlistall/"><FONT SIZE="7">chenchi自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/kevinlee_StoFavlistall/"><FONT SIZE="7">kevinlee自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/liusnow_StoFavlistall/"><FONT SIZE="7">liusnow_自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/yuhuahsiao_StoFavlistall/"><FONT SIZE="7">yuhuahsiao自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/magicjohn_StoFavlistall/"><FONT SIZE="7">magicjohn自選股一覽</FONT></a>
+		 </th>
+		</tr>
+
+
+
+
+
+
+
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stockKn/"><FONT SIZE="7">外部股東稅前報酬率(Kn值)即時計算</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+
+
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6sta2021/"><FONT SIZE="7">統計2021年全年六大指標統計數據</FONT></a>
+		</th>
+		</tr>
+
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#73BF00;">
+		 <a href="/viewsISQuery/"><FONT SIZE="7">損益表 季表 簡易版查詢</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#73BF00;">
+		 <a href="/viewsBSQuery/"><FONT SIZE="7">資產負債表 季表 簡易版查詢</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#EA0000;">
+		 <a href="/DC_Stock6Admin/"><FONT SIZE="7">六大指標多重檢驗 - 全部（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_Rev/"><FONT SIZE="7">六大指標多重檢驗 - 營收</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_Prof/"><FONT SIZE="7">六大指標多重檢驗 - 營益率</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_NetInc/"><FONT SIZE="7">六大指標多重檢驗 - 稅後淨利YoY</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_EPS/"><FONT SIZE="7">六大指標多重檢驗 - EPS</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_InvTO/"><FONT SIZE="7">六大指標多重檢驗 - 存貨週轉率</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_Cashflow/"><FONT SIZE="7">六大指標多重檢驗 - 現金流量</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#73BF00;">
+		 <a href="/stock6getOne/"><FONT SIZE="7">六大指標 單家公司評分 資料庫歷史紀錄查詢</FONT></a>
+		 </th>
+		</tr>
+
+
+
+
+	<tr>
+
+		 <th align="left" style="background-color:#73BF00;">
+		 <a href="/stock6getOneAdmin/"><FONT SIZE="7">六大指標 單家公司評分 資料庫歷史紀錄查詢（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6/"><FONT SIZE="7">六大指標即時計算（舊版）</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6x/"><FONT SIZE="7">六大指標即時計算（新版優化）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6xDB/"><FONT SIZE="7">六大指標即時計算（新版優化plus資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6Admin/"><FONT SIZE="7">六大指標即時計算（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6xAdmin/"><FONT SIZE="7">六大指標即時計算 新版優化（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6AdminGL/"><FONT SIZE="7">六大指標平均的增減計算（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#ADFEDC;">
+		 <a href="/stock6TSE/"><FONT SIZE="7">六大指標 上市類股查詢</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#ADFEDC;">
+		 <a href="/stock6OTC/"><FONT SIZE="7">六大指標 上櫃類股查詢</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#ADFEDC;">
+		 <a href="/stock6Concepts/"><FONT SIZE="7">六大指標 概念股查詢</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#ADFEDC;">
+		 <a href="/stock6SubCats/"><FONT SIZE="7">六大指標 子產業查詢</FONT></a>
+		 </th>
+		</tr>
+		<tr>
+
+		<tr>
+
+		 <th align="left" style="background-color:#ADFEDC;">
+		 <a href="/stock6SubCatsAdmin/"><FONT SIZE="7">六大指標 子產業查詢（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+		<tr>
+
+		 <th align="left" style="background-color:#46A3FF;">
+		 <a href="/stock6AdminTB1M/"><FONT SIZE="7">六大指標回溯一個月計算（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#46A3FF;">
+		 <a href="/stock6AdminTB1S/"><FONT SIZE="7">六大指標回溯一季計算（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#46A3FF;">
+		 <a href="/stock6AdminTB1S1M/"><FONT SIZE="7">六大指標回溯一季又一個月計算（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#46A3FF;">
+		 <a href="/stock6AdminTB2M/"><FONT SIZE="7">六大指標回溯2個月計算（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+
+		 <th align="left" style="background-color:#46A3FF;">
+		 <a href="/stock6AdminTB1S2M/"><FONT SIZE="7">六大指標回溯一季又2個月計算（寫入資料庫）</FONT></a>
+		 </th>
+		</tr>
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202208/"><FONT SIZE="7">#DB22-08-1# 列出2022年8月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202208score/"><FONT SIZE="7">#DB22-08-2# 列出2022年8月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1tzvZVTL0II-pP1ewnkZ_5p89yy-OQZc98nMsR17QrF8/edit?usp=sharing"><FONT SIZE="7">#DB22-08-g# 列出2022年8月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202209/"><FONT SIZE="7">#DB22-09-1# 列出2022年9月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202209score/"><FONT SIZE="7">#DB22-09-2# 列出2022年9月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1xy3LNxeumRjuPLSrPjec1o4KR74id7FsSQ57ZYeZgh8/edit?usp=sharing"><FONT SIZE="7">#DB22-09-g# 列出2022年9月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202210/"><FONT SIZE="7">#DB22-10-1# 列出2022年10月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202210score/"><FONT SIZE="7">#DB22-10-2# 列出2022年10月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/11MYmlHpG6NA02WlEfPpcf7QasgRJZRA2_oA-fqq1hXc/edit?usp=sharing"><FONT SIZE="7">#DB22-10-g# 列出2022年10月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202211/"><FONT SIZE="7">#DB22-11-1# 列出2022年11月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202211score/"><FONT SIZE="7">#DB22-11-2# 列出2022年11月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1hek9ZwukPpqkr8UjMEqxQAk7xBIwDSg5qDMY1Z9HgO4/edit?usp=sharing"><FONT SIZE="7">#DB22-11-g# 列出2022年11月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202212/"><FONT SIZE="7">#DB22-12-1# 列出2022年12月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202212score/"><FONT SIZE="7">#DB22-12-2# 列出2022年12月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/109VxF1sPbNih-I3_mnt9V-JLW3RVLbxK8Lx46d6-v_Q/edit?usp=sharing"><FONT SIZE="7">#DB22-12-g# 列出2022年12月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+		
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202301/"><FONT SIZE="7">#DB23-01-1# 列出2023年1月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202301score/"><FONT SIZE="7">#DB23-01-2# 列出2023年1月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/12njTranPnk_dmKWAlprfG52bphcp8RBDtVIwE4hchME/edit?usp=sharing"><FONT SIZE="7">#DB23-01-g# 列出2023年1月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>		
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202302/"><FONT SIZE="7">#DB23-02-1# 列出2023年2月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202302score/"><FONT SIZE="7">#DB23-02-2# 列出2023年2月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1tb_3e6EwWnnIPRRVk92nK_tDhjebiHHUaJhiuFY8J5Y/edit?usp=sharing"><FONT SIZE="7">#DB23-02-g# 列出2023年2月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>	
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202303/"><FONT SIZE="7">#DB23-03-1# 列出2023年3月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202303score/"><FONT SIZE="7">#DB23-03-2# 列出2023年3月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/137QFtEWRT3e-uvBn2kQUxbWhV9gkiI8wVQD7BOuH1Zs/edit?usp=sharing"><FONT SIZE="7">#DB23-03-g# 列出2023年3月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>	
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202304/"><FONT SIZE="7">#DB23-04-1# 列出2023年4月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202304score/"><FONT SIZE="7">#DB23-04-2# 列出2023年4月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1nMBhcU1Ap3KP3ACLuIaEEQYmdGNbTJDMM-Cdbzv8N-E/edit?usp=sharing"><FONT SIZE="7">#DB23-04-g# 列出2023年4月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202305/"><FONT SIZE="7">#DB23-05-1# 列出2023年5月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202305score/"><FONT SIZE="7">#DB23-05-2# 列出2023年5月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1G2xYJItuBSP75VF4ZavlYaGGdaxjFlzSE2a2L_5Pjzg/edit?usp=sharing"><FONT SIZE="7">#DB23-05-g# 列出2023年5月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202306/"><FONT SIZE="7">#DB23-06-1# 列出2023年6月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202306score/"><FONT SIZE="7">#DB23-06-2# 列出2023年6月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1j2nJQRNuqyJnCnNHpB1i2YU1W-9cME0kB9a_YCnbDGg/edit?usp=sharing"><FONT SIZE="7">#DB23-06-g# 列出2023年6月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202307/"><FONT SIZE="7">#DB23-07-1# 列出2023年7月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202307score/"><FONT SIZE="7">#DB23-07-2# 列出2023年7月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1dmeIQR9KjzG5KIhhGEr-iAMWT7vRwb2abah7x3LSvlU/edit?usp=sharing"><FONT SIZE="7">#DB23-07-g# 列出2023年7月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+		
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202308/"><FONT SIZE="7">#DB23-08-1# 列出2023年8月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202308score/"><FONT SIZE="7">#DB23-08-2# 列出2023年8月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/17OgkkTmS5kqJjTZkHYKRuPSRNx72w28udlJ-9lYVb0s/edit?usp=sharing"><FONT SIZE="7">#DB23-08-g# 列出2023年8月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>		
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202309/"><FONT SIZE="7">#DB23-09-1# 列出2023年9月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202309score/"><FONT SIZE="7">#DB23-09-2# 列出2023年9月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1UpmH-x_uLTeb-oCIYwq-FYb2m49ktCUUMzcIcxGgsD4/edit?usp=sharing"><FONT SIZE="7">#DB23-09-g# 列出2023年9月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>		
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202310/"><FONT SIZE="7">#DB23-10-1# 列出2023年10月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202310score/"><FONT SIZE="7">#DB23-10-2# 列出2023年10月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/16eaYVJm4c2MuECOjzIPj76kWMtAopTDJB3lkR6k5Lqs/edit?usp=sharing"><FONT SIZE="7">#DB23-10-g# 列出2023年10月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202311/"><FONT SIZE="7">#DB23-11-1# 列出2023年11月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202311score/"><FONT SIZE="7">#DB23-11-2# 列出2023年11月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1hJHpG6wWGkL7Cd3KK3CVPaftiLZBM5RX4x2kd3G5qYw/edit?usp=sharing"><FONT SIZE="7">#DB23-11-g# 列出2023年11月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202312/"><FONT SIZE="7">#DB23-12-1# 列出2023年12月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202312score/"><FONT SIZE="7">#DB23-12-2# 列出2023年12月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1Iakn5sXmLxKu4jiKfj8lyfMvsmniAmcTRIOV84Kz8gU/edit?usp=sharing"><FONT SIZE="7">#DB23-12-g# 列出2023年12月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202401/"><FONT SIZE="7">#DB24-01-1# 列出2024年1月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202401score/"><FONT SIZE="7">#DB24-01-2# 列出2024年1月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1Qe-Ykp3layRW5SsCgml4s8UGrth97lVHlLjaNDZ9lUI/edit?usp=sharing"><FONT SIZE="7">#DB24-01-g# 列出2024年1月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202402/"><FONT SIZE="7">#DB24-02-1# 列出2024年2月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202402score/"><FONT SIZE="7">#DB24-02-2# 列出2024年2月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1s2D6cYmpOTntvT4gXG7fg8E9AsLnBu-btAy2FK2LRt0/edit?usp=sharing"><FONT SIZE="7">#DB24-02-g# 列出2024年2月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202403/"><FONT SIZE="7">#DB24-03-1# 列出2024年3月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202403score/"><FONT SIZE="7">#DB24-03-2# 列出2024年3月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1tA0TNE5wOpRBUM85LoiwU8OjuxzC5_dR4Ody1KDjOZI/edit?usp=sharing"><FONT SIZE="7">#DB24-03-g# 列出2024年3月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+		
+		
+	<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202404/"><FONT SIZE="7">#DB24-04-1# 列出2024年4月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202404score/"><FONT SIZE="7">#DB24-04-2# 列出2024年4月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="https://docs.google.com/spreadsheets/d/1cTUbu42GKl71XwAJnqd9IZ8-_tbjD10ztQ-_zzXH0bA/edit?usp=sharing"><FONT SIZE="7">#DB24-04-g# 列出2024年4月營收公佈後全部六大指標資料（Gsheets資料庫）</FONT></a>
+		</th>
+		</tr>
+</table>
+
+<br><br><br>
+
+
+<table width="100%">
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPrice5y/"><FONT SIZE="7">5年歷史價格即時查詢</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPrice5yAdmin/"><FONT SIZE="7">5年歷史價格即時查詢（寫入資料庫）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockNetCapAdmin/"><FONT SIZE="7">過去四季稅後淨利率和股本價格即時查詢（寫入資料庫）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg/"><FONT SIZE="7">本益比區間即時計算（舊版）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegx/"><FONT SIZE="7">本益比區間即時計算（新版優化）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegxMain/"><FONT SIZE="7">本益比區間即時計算（新版優化）（程式重構）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegxDB/"><FONT SIZE="7">本益比區間「半」即時計算（新優化2版）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg2/"><FONT SIZE="7">本益比區間即時計算 簡易版（自行調整數字）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg2xDB/"><FONT SIZE="7">本益比區間「半」即時計算 簡易版（自行調整數字）（新優化2版）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg3/"><FONT SIZE="7">本益比區間即時計算 進階版（自行調整數字）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg3xDB/"><FONT SIZE="7">本益比區間「半」即時計算 進階版（自行調整數字）（新優化2版）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegAdmin/"><FONT SIZE="7">本益比區間即時計算（寫入資料庫）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegDiv/"><FONT SIZE="7">本益比區間（還權）即時計算</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegPEG/"><FONT SIZE="7">本益比區間PEG即時計算</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegPEGMain/"><FONT SIZE="7">本益比區間PEG即時計算（程式重構）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegPEGxDB/"><FONT SIZE="7">本益比區間PEG「半」即時計算（新優化2版）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202208/"><FONT SIZE="7">#DB22-07-3# 列出2022年8月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202208score/"><FONT SIZE="7">#DB22-07-4# 列出2022年8月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202209/"><FONT SIZE="7">#DB22-09-3# 列出2022年9月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202209score/"><FONT SIZE="7">#DB22-09-4# 列出2022年9月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202210/"><FONT SIZE="7">#DB22-10-3# 列出2022年10月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202210score/"><FONT SIZE="7">#DB22-10-4# 列出2022年10月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202211/"><FONT SIZE="7">#DB22-11-3# 列出2022年11月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202211score/"><FONT SIZE="7">#DB22-11-4# 列出2022年11月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202212/"><FONT SIZE="7">#DB22-12-3# 列出2022年12月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202212score/"><FONT SIZE="7">#DB22-12-4# 列出2022年12月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202301/"><FONT SIZE="7">#DB23-01-3# 列出2023年1月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202301score/"><FONT SIZE="7">#DB23-01-4# 列出2023年1月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202302/"><FONT SIZE="7">#DB23-02-3# 列出2023年2月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202302score/"><FONT SIZE="7">#DB23-02-4# 列出2023年2月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202303/"><FONT SIZE="7">#DB23-03-3# 列出2023年3月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202303score/"><FONT SIZE="7">#DB23-03-4# 列出2023年3月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>	
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202304/"><FONT SIZE="7">#DB23-04-3# 列出2023年4月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202304score/"><FONT SIZE="7">#DB23-04-4# 列出2023年4月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>	
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202305/"><FONT SIZE="7">#DB23-05-3# 列出2023年5月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202305score/"><FONT SIZE="7">#DB23-05-4# 列出2023年5月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202306/"><FONT SIZE="7">#DB23-06-3# 列出2023年6月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202306score/"><FONT SIZE="7">#DB23-06-4# 列出2023年6月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202307/"><FONT SIZE="7">#DB23-07-3# 列出2023年7月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202307score/"><FONT SIZE="7">#DB23-07-4# 列出2023年7月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202308/"><FONT SIZE="7">#DB23-08-3# 列出2023年8月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202308score/"><FONT SIZE="7">#DB23-08-4# 列出2023年8月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202309/"><FONT SIZE="7">#DB23-09-3# 列出2023年9月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202309score/"><FONT SIZE="7">#DB23-09-4# 列出2023年9月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202310/"><FONT SIZE="7">#DB23-10-3# 列出2023年10月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202310score/"><FONT SIZE="7">#DB23-10-4# 列出2023年10月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>		
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202311/"><FONT SIZE="7">#DB23-11-3# 列出2023年11月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202311score/"><FONT SIZE="7">#DB23-11-4# 列出2023年11月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202312/"><FONT SIZE="7">#DB23-12-3# 列出2023年12月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202312score/"><FONT SIZE="7">#DB23-12-4# 列出2023年12月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202401/"><FONT SIZE="7">#DB24-01-3# 列出2024年1月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202401score/"><FONT SIZE="7">#DB24-01-4# 列出2024年1月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202402/"><FONT SIZE="7">#DB24-02-3# 列出2024年2月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202402score/"><FONT SIZE="7">#DB24-02-4# 列出2024年2月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+		
+				<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202403/"><FONT SIZE="7">#DB24-03-3# 列出2024年3月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202403score/"><FONT SIZE="7">#DB24-03-4# 列出2024年3月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+		
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202404/"><FONT SIZE="7">#DB24-04-3# 列出2024年4月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202404score/"><FONT SIZE="7">#DB24-04-4# 列出2024年4月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+</table>
+
+<br><br><br>
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegStable/"><FONT SIZE="7">#2-7# 本益比區間波動值計算</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FFE6FF;">
+		 <a href="/DB_stockPERsegStable/"><FONT SIZE="7">本益比區間波動值 資料庫</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2021Q2/"><FONT SIZE="7">列出2021年Q2財報和2021年7月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2021Q3/"><FONT SIZE="7">列出2021年Q3財報和2021年10月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2021Q4/"><FONT SIZE="7">列出2021年Q4財報和2022年2月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2022Q1/"><FONT SIZE="7">列出2022年Q1財報和2022年4月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2022Q3/"><FONT SIZE="7">列出2022年Q3財報和2022年10月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2022Q4/"><FONT SIZE="7">列出2022年Q4財報和2023年2月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2023Q1/"><FONT SIZE="7">列出2023年Q1財報和2023年4月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2023Q2/"><FONT SIZE="7">列出2023年Q2財報和2023年8月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2023Q3/"><FONT SIZE="7">列出2023年Q3財報和2023年11月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+</table>
+
+<br><br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#73BF00;">
+		<a href="/Epsachiever/"><FONT SIZE="7">EPS達成率</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#73BF00;">
+		<a href="/EpsachieverAdmin/"><FONT SIZE="7">EPS達成率（寫入資料庫）</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSachieve2022Q3listall/"><FONT SIZE="7">列出2022年Q3財報和10月營收公佈後評分2.5分以上股票的EPS達成率超過33%的名單</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSachieve2023Q1listall/"><FONT SIZE="7">列出2023年Q1財報和4月營收公佈後評分2.5分以上股票的EPS達成率超過33%的名單</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSachieve2023Q2listall/"><FONT SIZE="7">列出2023年Q2財報和8月營收公佈後評分2.5分以上股票的EPS達成率超過33%的名單</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSachieve2023Q3listall/"><FONT SIZE="7">列出2023年Q3財報和11月營收公佈後評分2.5分以上股票的EPS達成率超過33%的名單</FONT></a>
+		</th>
+		</tr>
+
+</table>
+
+<br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#00CACA;">
+		<a href="/StockCapGetter/"><FONT SIZE="7">股本變化率</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#00CACA;">
+		<a href="/StockCapGetterAdmin/"><FONT SIZE="7">股本變化率（寫入資料庫）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2022Q3listall/"><FONT SIZE="7">列出資料庫2022年Q3財報和2022年10月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>	
+		
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2022Q4listall/"><FONT SIZE="7">列出資料庫2022年Q4財報和2023年2月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>		
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2023Q1listall/"><FONT SIZE="7">列出資料庫2023年Q1財報和2023年4月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>	
+		
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2023Q2listall/"><FONT SIZE="7">列出資料庫2023年Q2財報和2023年8月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>			
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2023Q3listall/"><FONT SIZE="7">列出資料庫2023年Q3財報和2023年11月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>
+			
+		</table>
+
+<br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#FFC1E0;">
+		<a href="/EPSnProfitGetter/"><FONT SIZE="7">EPS和營益率創新高查詢</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#FFC1E0;">
+		<a href="/EPSnProfitGetterAdmin/"><FONT SIZE="7">EPS和營益率創新高查詢（寫入資料庫）</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2022Q3listall/"><FONT SIZE="7">列出資料庫2022年Q3財報和2022年10月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+		
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2022Q4listall/"><FONT SIZE="7">列出資料庫2022年Q4財報和2023年2月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>		
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2023Q1listall/"><FONT SIZE="7">列出資料庫2023年Q1財報和2023年4月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2023Q2listall/"><FONT SIZE="7">列出資料庫2023年Q2財報和2023年8月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2023Q3listall/"><FONT SIZE="7">列出資料庫2023年Q3財報和2023年11月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+
+</table>
+
+
+<br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#FF8040;">
+		<a href="/BigMoney/"><FONT SIZE="7">大戶持有比率查詢</FONT></a>
+		</th>
+		</tr>
+
+
+
+</table>
+
+<br><br>
+
+<table width="100%">
+
+		<tr>
+		  <th align="left" style="background-color:#9999CC;">
+		<a href="/AREAdownloads/"><FONT SIZE="7">付費使用者下載專區</FONT></a>
+		</th>
+		</tr>
+
+
+		</table>
+
+
+		<div class="topfunction">
+		{% if currentpage > 1 %}
+			<a href="/adminmain/1/" title="上一頁">
+			上一頁</a>
+		{% endif %}
+		{% if currentpage < totpage %}
+			<a href="/adminmain/2/" title="下一頁">
+			下一頁</a>
+		{% endif %}
+		 </div>
+	</div>
+{% endblock %}

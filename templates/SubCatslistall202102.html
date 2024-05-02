@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有資料</title>
+	</head>
+	<body>
+		<h2>顯示 2021年2月營收公佈後 子產業 六大指標評分平均趨勢 </h2>
+
+
+
+
+
+<br><br>
+
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">子產業<br>名稱</FONT></th>
+
+			<th align="center"><FONT SIZE="5">2月<br>評分<br>總平均</FONT></th>
+			<th align="center"><FONT SIZE="5">1月<br>評分<br>總平均</FONT></th>
+			<th align="center"><FONT SIZE="5">12月<br>評分<br>總平均</FONT></th>
+			<th align="center"><FONT SIZE="5">11月<br>評分<br>總平均</FONT></th>
+			<th align="center"><FONT SIZE="5">Q3<br>評分<br>總平均</FONT></th>
+			<th align="center"><FONT SIZE="5">9月<br>評分<br>總平均</FONT></th>
+			<th align="center"><FONT SIZE="5">8月<br>評分<br>總平均</FONT></th>
+			<th align="center"><FONT SIZE="5">Q2<br>評分<br>總平均</FONT></th>
+			<th align="center"><FONT SIZE="5">6月<br>評分<br>總平均</FONT></th>
+
+
+
+			<th align="center"><FONT SIZE="5">資料<br>獲取<br>時間</FONT></th>
+
+			{% for sub in subs %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ sub.id }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sub.cSubCatName }}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sub.cScore2102 }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sub.cScore2101 }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sub.cScore2012 }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sub.cScore2011 }}</FONT> </td>					
+					<td align="center"><FONT SIZE="5">{{ sub.cScore20Q3 }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sub.cScore2009 }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sub.cScore2008 }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sub.cScore20Q2 }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sub.cScore2006 }}</FONT> </td>
+
+
+					<td align="center"><FONT SIZE="5">{{ sub.pubtime}}</FONT> </td>	
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

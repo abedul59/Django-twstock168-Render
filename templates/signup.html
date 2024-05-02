@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<form action="." method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">帳號：<input type="text" name="username" id="username" style="font-size:40px" /></FONT></div>
+    <div><FONT SIZE="7">密碼：<input type="password" name="password" id="password" style="font-size:40px" /></FONT></div>
+
+    <div><FONT SIZE="7">姓（真實）：<input type="last_name" name="last_name" id="last_name" style="font-size:40px"/></FONT></div>
+    <div><FONT SIZE="7">名（真實）：<input type="first_name" name="first_name" id="first_name" style="font-size:40px"/></FONT></div>
+    <div><FONT SIZE="7">email：<input type="email" name="email" id="email" style="font-size:40px"/></FONT></div>
+
+
+
+
+    <br><br>
+    <div>
+    <input type="submit" name="button" id="button" value="註冊"  style="font-size:60px"/>
+    </div> 
+    
+</form>
+
+
+
+</html>

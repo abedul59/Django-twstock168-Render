@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有資料</title>
+	</head>
+	<body>
+		<h2>列出2023年Q3財報和10月營收公佈後評分2.5分以上股票的EPS達成率超過100%的名單</h2>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">股票代碼</FONT></th>
+			<th align="center"><FONT SIZE="5">股票名稱</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">2022年EPS（元）</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">2023Q3EPS（元）</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">2023Q2EPS（元）</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">2023Q1EPS（元）</FONT></th>
+
+
+			<th align="center" style="background-color:#EA0000;"><FONT SIZE="5">EPS達成率（%）</FONT></th>
+			<th align="center" style="background-color:#EA0000;"><FONT SIZE="5">資料獲取時間</FONT></th>
+			{% for eps in alleps %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{eps.id}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{eps.cStockID}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{eps.cStockName}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{eps.cEPS1}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{eps.cEPSQ1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{eps.cEPSQ2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{eps.cEPSQ3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{eps.cEPSAchieveRate}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{eps.pubtime}}</FONT> </td>	
+				</tr>
+
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

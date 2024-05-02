@@ -1,0 +1,138 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢各子產業 六大指標評分（寫入資料庫）</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+   
+ 	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+  
+  {% else %}
+       
+ <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+ 
+   {% endif %}
+</td>
+</tr>
+
+</table>
+
+
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="7">查詢各子產業<br>六大指標評分平均（寫入資料庫）</FONT></caption>
+
+<tr>
+  <td align="center">
+  <form action="/stock6SubCatsAdmin/" method="POST" name="form1">
+    {% csrf_token %}
+    <div>
+<br><br>
+<select style="font-size:50px;" name="groupid" id="groupid">
+    <option value="">請選擇子產業</option>
+    <option value="sub1">3C二次電池</option>
+    <option value="sub2">3C通路</option>
+    <option value="sub3">電子-PC EMS</option>
+    <option value="sub4">電子-PCB原材料 FCCL</option>
+    <option value="sub5">IC封測</option>
+    <option value="sub6">IC設計</option>
+    <option value="sub7">主機板-IC載板</option>
+    <option value="sub8">IC導線架</option>
+    <option value="sub9">LCD</option>
+    <option value="sub10">LCD-其他</option>
+    <option value="sub11">PCB</option>
+    <option value="sub12">PCB材-其他</option>
+    <option value="sub13">PC品牌</option>
+    <option value="sub14">PC週邊</option>
+    <option value="sub15">主機板-POS</option>
+    <option value="sub16">工具機</option>
+    <option value="sub17">主機板-工業電腦</option>
+    <option value="sub18">不織布</option>
+    <option value="sub19">不鏽鋼</option>
+    <option value="sub20">五金及家具</option>
+    <option value="sub21">化合物SEMI</option>
+    <option value="sub22">化纖</option>
+    <option value="sub23">天然氣</option>
+    <option value="sub24">太陽能系統</option>
+    <option value="sub25">太陽能晶圓</option>
+    <option value="sub26">太陽能電池</option>
+
+</select>
+
+</div>
+
+<br><br>
+
+
+
+<div><FONT SIZE="7">請輸入取出資料庫代號（範例：06指2021年6月六大指標資料庫）：<input type="text" name="dbname1"  style="font-size:40px"></FONT> <br>
+<br>
+<br>
+
+<div><FONT SIZE="7">請輸入寫入資料庫代號（範例：06指2021年6月六大指標評分平均資料庫）：<input type="text" name="dbname2"  style="font-size:40px"></FONT> <br>
+<br>
+<br>
+
+
+          <input type="submit" value="送出資料"  style="font-size:60px"></div>
+
+
+</form>
+</td>
+</tr>
+</table>
+
+
+
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/stock6listallSubCatsAdmin/{{mess}}/{{mess_db1}}/{{mess_db2}}" title="receivedurl"><FONT SIZE="7">上面選擇子產業，按送出後，按此觀看</FONT></a></td>
+
+</tr>
+</table>
+
+
+<br><br>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<tr>
+<td align="center"><a href="/usersmain/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+
+</table>
+
+</body>
+
+</html>

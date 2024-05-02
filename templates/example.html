@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>顯示本益比區間計算結果的範例</title>
+
+
+{% load static %}
+
+</head>
+
+<body>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎觀看本益比區間計算結果的功能範例！！</FONT>
+<br>
+<p><a href="https://forms.gle/4xL5A2TBzkZ1THte9"><FONT SIZE="7">請幫忙做問卷，謝謝！</FONT></a></p>
+<br>
+
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+<br><br>
+
+<table>
+<tr>
+<td><div id="perseg01">
+
+<img src="{% static "images/perseg01.jpg" %}"/>
+  </div>
+</td>
+
+</tr>
+
+
+<tr>
+<td><div id="perseg02">
+
+<img src="{% static "images/perseg02.jpg" %}"/>
+  </div>
+
+</td>
+
+</tr>
+
+<tr>
+<td><div id="perseg03">
+
+<img src="{% static "images/perseg03.jpg" %}"/>
+  </div>
+
+</td>
+
+</tr>
+
+</table>
+
+
+
+</body>
+
+</html>

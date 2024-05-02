@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有我的最愛裡的股票資訊</title>
+	</head>
+	<body>
+		<h2>顯示所有我的最愛裡的股票資訊</h2>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">股票代碼</FONT></th>
+			<th align="center"><FONT SIZE="5">股票名稱</FONT></th>
+
+
+			<th align="center"><FONT SIZE="5">最新評分</FONT></th>
+			<th align="center"><FONT SIZE="5">上個月<br>評分</FONT></th>
+			<th align="center"><FONT SIZE="5">上上個月<br>評分</FONT></th>
+
+
+			<th align="center"><FONT SIZE="5">預測EPS</FONT></th>
+			<th align="center"><FONT SIZE="5">預測最高價</FONT></th>
+			<th align="center"><FONT SIZE="5">預測最低價</FONT></th>
+			<th align="center"><FONT SIZE="5">最新成交價</FONT></th>
+			<th align="center"><FONT SIZE="5">上面空間</FONT></th>
+			<th align="center"><FONT SIZE="5">下面空間</FONT></th>
+			<th align="center"><FONT SIZE="5">風險報酬比率</FONT></th>
+			
+			<th align="center"><FONT SIZE="5">資料獲取時間</FONT></th>
+			{% for seg in segs %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ seg.id }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cStockID }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cStockName}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ seg.cScore1st}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cScore2nd}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cScore3rd}}</FONT> </td>
+
+
+
+
+					<td align="center"><FONT SIZE="5">{{ seg.cPredict_EPS}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cPredict_high_price}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cPredict_low_price}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cTodayClose}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cNew_up_profit}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cNew_down_loss}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ seg.cRisk_reward}}</FONT> </td>
+					
+					<td align="center"><FONT SIZE="5">{{ seg.pubtime}}</FONT> </td>	
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

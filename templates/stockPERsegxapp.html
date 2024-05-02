@@ -1,0 +1,143 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢台股公司昂貴價和便宜價（新版優化）</title>
+
+
+
+
+
+</head>
+
+<body>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="left">
+  <form action="." method="POST" name="form1">
+	{% csrf_token %}
+   
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid" style="font-size:40px"></FONT>          
+    <div><FONT SIZE="7">請輸入最新已公布營收月份數字(1到12)：<input type="text" name="monthid" style="font-size:40px"></FONT>
+          
+	<br><br>
+	<input type="submit" value="送出資料" style="font-size:60px"></div>
+	<div><FONT SIZE="6">說明：以上兩個空格都必須填入。且為了正確估算未來一整年的營收，所以請按照最新已公佈的營收月份，輸入正確的數字1到12，否則出來的數據會是錯誤的。</FONT></div>
+</form>
+</td>
+</tr>
+</table>
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+
+<td align="center" style="background-color:#FFC1E0;"><div><FONT SIZE="7">股票代號</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+</tr>
+
+<td align="center" style="background-color:#FFC1E0;"><div><FONT SIZE="7">股票名稱</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+</tr>
+</table>
+
+<br><br>
+
+<br>
+
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">計算未來EPS（若營收年增率和EPS年增率無成長為負數，就沒有投資價值）</FONT></caption>
+
+
+
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">預估2023年<br><br>EPS</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{Predict_EPS}}</FONT></div></td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">程式預估昂貴價<br><br>（升息期間保守估計）</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{Predict_high_price_30percentDown}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">程式預估便宜價<br><br>（升息期間保守估計）</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{Predict_low_price_30percentDown}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">最新市場<br><br>成交價</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{yahoo_latest_tradePrice}}</FONT></div></td>
+
+</tr>
+
+
+
+
+
+</table>
+
+<br>
+<br>
+
+
+
+<br>
+<br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/usersmain_app/" title="usersmain_app"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+</body>
+
+</html>

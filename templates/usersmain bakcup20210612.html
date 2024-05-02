@@ -1,0 +1,718 @@
+﻿{% extends "baseusers.html" %}
+ 
+
+
+
+{% block append %}
+
+{% endblock %}
+
+{% block content %}
+	<div class="contentbox">
+		<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="6">分類</FONT></th>
+		  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">標題</FONT></th>
+		  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">時間</FONT></th>
+		  <th align="left" style="background-color:#DDDDFF;"><FONT SIZE="6">點閱</FONT></th>
+	
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock">【{{ unit.catego }}】</div></FONT></td>
+			<td><FONT SIZE="6"><a href="/detail/{{unit.id}}/">{{ unit.title }}</a></FONT></td>
+			<td><FONT SIZE="5">{{ unit.pubtime }}</FONT></td>
+			<td align="center"><FONT SIZE="5">{{ unit.press }}</FONT></td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前沒有任何公告！</FONT></p>
+			</div>
+		{% endfor %}
+
+		</table>
+		<br><br><br>
+		<table width="100%">
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#D7FFEE;">
+		 <a href="https://shopee.tw/product/10430742/4047931613?smtt=0.0.9 "><FONT SIZE="7">linebot股票機器人單方案收費標準</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#C4E1FF;">
+		 <a href="https://shopee.tw/product/10430742/6608578228?smtt=0.0.9"><FONT SIZE="7">六大指標收費標準</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#D7FFEE;">
+		 <a href="https://shopee.tw/product/10430742/5439231364?smtt=0.0.9"><FONT SIZE="7">本益比區間、風險報酬倍數收費標準</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#D3A4FF">
+		 <a href="https://shopee.tw/product/10430742/6939400511?smtt=0.0.9"><FONT SIZE="7">六大指標 加 本益比區間、風險報酬倍數 雙方案收費標準</FONT></a>
+		 </th>
+		</tr>
+
+</table>
+
+<br><br><br>
+
+
+<table width="100%">
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#73BF00;">
+		 <a href="/viewsISQuery/"><FONT SIZE="7">損益表 季表 簡易版查詢</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/DCstock6listall202011/"><FONT SIZE="7">#DB20-11-0# 顯示 2020年11月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</FONT></a>
+		</th>
+		</tr>
+		<tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/DCstock6listall2020Q4/"><FONT SIZE="7">#DB20-12-0# 顯示 2020年Q4財報自結數和12月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/DCstock6listall202101/"><FONT SIZE="7">#DB21-01-0# 顯示 2021年1月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/DCstock6listall202102/"><FONT SIZE="7">#DB21-02-0# 顯示 2021年2月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/DCstock6listall202103/"><FONT SIZE="7">#DB21-03-0# 顯示 2021年3月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/DCstock6listall202104/"><FONT SIZE="7">#DB21-04-0# 顯示 2021年4月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/DCstock6listall202105/"><FONT SIZE="7">#DB21-05-0# 顯示 2021年5月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</FONT></a>
+		</th>
+		</tr>
+                            
+		 <th align="left" style="background-color:#EA0000;">
+		 <a href="/DC_Rev/"><FONT SIZE="7">#0-1# 六大指標多重檢驗 - 營收</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#EA0000;">
+		 <a href="/DC_Prof/"><FONT SIZE="7">#0-2# 六大指標多重檢驗 - 營益率</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#EA0000;">
+		 <a href="/DC_NetInc/"><FONT SIZE="7">#0-3# 六大指標多重檢驗 - 稅後淨利YoY</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#EA0000;">
+		 <a href="/DC_EPS/"><FONT SIZE="7">#0-4# 六大指標多重檢驗 - EPS</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#EA0000;">
+		 <a href="/DC_InvTO/"><FONT SIZE="7">#0-5# 六大指標多重檢驗 - 存貨週轉率</FONT></a>
+		 </th>
+		</tr>	
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#EA0000;">
+		 <a href="/DC_Cashflow/"><FONT SIZE="7">#0-6# 六大指標多重檢驗 - 現金流量</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6getOne/"><FONT SIZE="7">#1-1# 六大指標 單家公司評分 資料庫歷史紀錄查詢</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6/"><FONT SIZE="7">#1-2# 六大指標即時計算（舊版 逐漸不更新）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6x/"><FONT SIZE="7">#1-3# 六大指標即時計算（新版優化）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6TSE/"><FONT SIZE="7">#1-4# 六大指標 上市類股查詢（2021年4月）</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6OTC/"><FONT SIZE="7">#1-5# 六大指標 上櫃類股查詢（2021年4月）</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#ADFEDC;">
+		 <a href="/stock6Concepts/"><FONT SIZE="7">#1-6# 六大指標 概念股查詢（2021年4月）</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#ADFEDC;">
+		 <a href="/stock6SubCats/"><FONT SIZE="7">#1-7# 六大指標 子產業查詢（2021年4月）</FONT></a>
+		 </th>
+		</tr>
+
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall2020Q3/"><FONT SIZE="7">#DB20-10-1# 列出2020年Q3財報和10月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall2020Q3score/"><FONT SIZE="7">#DB20-10-2# 列出2020年Q3財報和10月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202011/"><FONT SIZE="7">#DB20-11-1# 列出2020年11月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202011score/"><FONT SIZE="7">#DB20-11-2# 列出2020年11月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall2020Q4/"><FONT SIZE="7">#DB20-12-1# 列出2020年12月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall2020Q4score/"><FONT SIZE="7">#DB20-12-2# 列出2020年12月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202101/"><FONT SIZE="7">#DB21-01-1# 列出2021年1月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202101score/"><FONT SIZE="7">#DB21-01-2# 列出2021年1月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202102/"><FONT SIZE="7">#DB21-02-1# 列出2021年2月營收和2020年Q4財報公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202102score/"><FONT SIZE="7">#DB21-02-2# 列出2021年2月營收和2020年Q4財報公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202103/"><FONT SIZE="7">#DB21-03-1# 列出2021年3月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202103score/"><FONT SIZE="7">#DB21-03-2# 列出2021年3月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202104/"><FONT SIZE="7">#DB21-04-1# 列出2021年4月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202104score/"><FONT SIZE="7">#DB21-04-2# 列出2021年4月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202105/"><FONT SIZE="7">#DB21-05-1# 列出2021年5月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202105score/"><FONT SIZE="7">#DB21-05-2# 列出2021年5月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+</table>
+
+<br><br><br>
+
+
+<table width="100%">
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPrice5y/"><FONT SIZE="7">#2-1# 5年歷史價格即時查詢</FONT></a>
+		</th>	
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg/"><FONT SIZE="7">#2-2# 本益比區間即時計算（舊版 逐漸不更新）</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegx/"><FONT SIZE="7">#2-2# 本益比區間即時計算（新版優化）</FONT></a>
+		</th>	
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg2/"><FONT SIZE="7">#2-3# 本益比區間即時計算 簡易版（自行調整參數）</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg3/"><FONT SIZE="7">#2-4# 本益比區間即時計算 進階版（自行調整數字）</FONT></a>
+		</th>	
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegDiv/"><FONT SIZE="7">#2-5# 本益比區間（還權）即時計算</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegPEG/"><FONT SIZE="7">#2-6# 本益比區間PEG即時計算</FONT></a>
+		</th>	
+		</tr>
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall2020Q3/"><FONT SIZE="7">#DB20-10-3# 列出2020年Q3財報和10月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall2020Q3score/"><FONT SIZE="7">#DB20-10-4# 列出2020年Q3財報和10月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202011/"><FONT SIZE="7">#DB20-11-3# 列出2020年11月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202011score/"><FONT SIZE="7">#DB20-11-4# 列出2020年11月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall2020Q4/"><FONT SIZE="7">#DB20-12-3# 列出2020年12月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall2020Q4score/"><FONT SIZE="7">#DB20-12-4# 列出2020年12月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202101/"><FONT SIZE="7">#DB21-01-3# 列出2021年1月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202101score/"><FONT SIZE="7">#DB21-01-4# 列出2021年1月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202102/"><FONT SIZE="7">#DB21-02-3# 列出2021年2月營收和2020年Q4財報公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202102score/"><FONT SIZE="7">#DB21-02-4# 列出2021年2月營收和2020年Q4財報公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202103/"><FONT SIZE="7">#DB21-03-3# 列出2021年3月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202103score/"><FONT SIZE="7">#DB21-03-4# 列出2021年3月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202104/"><FONT SIZE="7">#DB21-04-3# 列出2021年4月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202104score/"><FONT SIZE="7">#DB21-04-4# 列出2021年4月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202105/"><FONT SIZE="7">#DB21-05-3# 列出2021年5月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202105score/"><FONT SIZE="7">#DB21-05-4# 列出2021年5月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegStable/"><FONT SIZE="7">#2-7# 本益比區間波動值計算</FONT></a>
+		</th>	
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2020/"><FONT SIZE="7">#DB20-06-5# 列出2020年6月公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2020Q2/"><FONT SIZE="7">#DB20-Q2-5# 列出2020年Q2財報和7月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2020Q3/"><FONT SIZE="7">#DB20-Q3-5# 列出2020年Q3財報和10月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2020Q4/"><FONT SIZE="7">#DB20-Q4-5# 列出2020年Q4財報和2021年2月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2021Q1/"><FONT SIZE="7">#DB21-Q1-5# 列出2021年Q1財報和2021年4月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+
+</table>
+
+<br><br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#73BF00;">
+		<a href="/Epsachiever/"><FONT SIZE="7">#3-1# EPS達成率</FONT></a>
+		</th>	
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/listallEPS/"><FONT SIZE="7">#DB20-06-6# 列出2020年6月營收公佈後評分2.5分以上股票的EPS達成率超過33%的名單</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSachieve2020Q2listall/"><FONT SIZE="7">#DB20-Q2-6# 列出2020年Q2財報和7月營收公佈後評分2.5分以上股票的EPS達成率超過60%的名單</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSachieve2020Q3listall/"><FONT SIZE="7">#DB20-Q3-6# 列出2020年Q3財報和10月營收公佈後評分2.5分以上股票的EPS達成率超過100%的名單</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSachieve2021Q1listall/"><FONT SIZE="7">#DB21-Q1-6# 列出2021年Q1財報和4月營收公佈後評分2.5分以上股票的EPS達成率超過33%的名單</FONT></a>
+		</th>
+		</tr>
+</table>
+
+<br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#0080FF;">
+		<a href="/StockCapGetter/"><FONT SIZE="7">#4-1# 股本變化率</FONT></a>
+		</th>	
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2020Q2listall/"><FONT SIZE="7">#DB20-Q2-7# 列出2020年Q2財報和7月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2020Q3listall/"><FONT SIZE="7">#DB20-Q3-7# 列出2020年Q3財報和10月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2020Q4listall/"><FONT SIZE="7">#DB20-Q4-7# 列出2020年Q4財報和2021年2月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2021Q1listall/"><FONT SIZE="7">#DB21-Q1-7# 列出2021年Q1財報和2021年4月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>
+
+		</table>
+
+<br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#FFC1E0;">
+		<a href="/EPSnProfitGetter/"><FONT SIZE="7">#5-1# EPS和營益率創新高查詢</FONT></a>
+		</th>	
+		</tr>
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfitlistall2020Q1/"><FONT SIZE="7">#DB20-06-8# 列出資料庫2020年6月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2020Q2listall/"><FONT SIZE="7">#DB20-Q2-8# 列出資料庫2020年Q2財報和7月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2020Q3listall/"><FONT SIZE="7">#DB20-Q3-8# 列出資料庫2020年Q3財報和0月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2020Q4listall/"><FONT SIZE="7">#DB20-Q4-8#列出資料庫2020年Q4財報和2021年2月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2021Q1listall/"><FONT SIZE="7">#DB21-Q1-8#列出資料庫2021年Q1財報和2021年4月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+		</table>
+<br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#FF8040;">
+		<a href="/BigMoney/"><FONT SIZE="7">#6-1# 大戶持有比率查詢</FONT></a>
+		</th>	
+		</tr>
+
+
+
+</table>
+
+<br><br>
+
+<table width="100%">
+
+		<tr>
+		  <th align="left" style="background-color:#9999CC;">
+		<a href="/AREAdownloads/"><FONT SIZE="7">付費使用者下載專區</FONT></a>
+		</th>	
+		</tr>
+
+
+		</table>		
+
+
+		<div class="topfunction">
+		{% if currentpage > 1 %}
+			<a href="/usersmain/1/" title="上一頁">
+			上一頁</a>
+		{% endif %}
+		{% if currentpage < totpage %}
+			<a href="/usersmain/2/" title="下一頁">
+			下一頁</a>
+		{% endif %}
+		 </div>
+	</div>
+{% endblock %}

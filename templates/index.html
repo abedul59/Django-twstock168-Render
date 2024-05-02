@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+
+{% block login %}
+
+	<br><br><br>
+	<div class="userlogin">
+		<a href="/login2/" title="付費使用者登入">
+		<FONT SIZE="7">付費使用者登入</FONT></a>
+	</div>
+<br>
+	<div class="userlogin">
+		<a href="/login3/" title="App試用者登入">
+		<FONT SIZE="7">App試用者登入</FONT></a>
+	</div>
+<br>
+	<div class="usersignup">
+	<a href="/signup/"><FONT SIZE="7">註冊帳號</FONT></a>
+	</div>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+	<div class="contentbox">
+		<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="6">分類</FONT></th>
+		  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">標題</FONT></th>
+		  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">時間</FONT></th>
+		  <th align="left" style="background-color:#DDDDFF;"><FONT SIZE="6">點閱</FONT></th>
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock">【{{ unit.catego }}】</div></FONT></td>
+			<td><FONT SIZE="6"><a href="/detail/{{unit.id}}/">{{ unit.title }}</a></FONT></td>
+			<td><FONT SIZE="5">{{ unit.pubtime }}</FONT></td>
+			<td align="center"><FONT SIZE="5">{{ unit.press }}</FONT></td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前沒有任何公告！</FONT></p>
+			</div>
+		{% endfor %}
+		</table>
+		<div class="topfunction">
+		{% if currentpage > 1 %}
+			 <a href="/index/1/" title="上一頁">
+			上一頁</a>
+		{% endif %}
+		{% if currentpage < totpage %}
+			<a href="/index/2/" title="下一頁">
+			下一頁</a>
+		{% endif %}
+		</div>
+	</div>
+
+<br><br><br>
+
+{% endblock %}
+
+
+{% block login2 %}
+	<div class="toplogin">
+		<a href="/login/" title="登入管理介面">
+		<FONT SIZE="7">管理者登録</FONT></a>
+	</div>
+
+{% endblock %}

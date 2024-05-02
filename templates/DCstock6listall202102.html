@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有資料</title>
+	</head>
+	<body>
+		<h2>顯示 2021年2月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</h2>
+
+
+
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">總家數</FONT></th>
+			<th align="center"><FONT SIZE="5">3分以上家數</FONT></th>
+			<th align="center"><FONT SIZE="5">2-2.9分家數</FONT></th>
+			<th align="center"><FONT SIZE="5">1-1.9分家數</FONT></th>
+			<th align="center"><FONT SIZE="5">0-0.9分家數</FONT></th>
+
+			<th align="center"><FONT SIZE="5">進步家數</FONT></th>
+			<th align="center"><FONT SIZE="5">持平家數</FONT></th>
+			<th align="center"><FONT SIZE="5">退步家數</FONT></th>
+
+
+				<tr>
+					<td align="center"><FONT SIZE="5"></FONT> </td>
+					<td align="center"><FONT SIZE="5">{{threeCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{twoCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{oneCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{zeroCategLength}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{gainCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{tieCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{lossCategLength}}</FONT> </td>
+				</tr>
+			
+		</table>
+
+<br><br>
+
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">股票<br>代碼</FONT></th>
+			<th align="center"><FONT SIZE="5">股票<br>名稱</FONT></th>
+			<th align="center"><FONT SIZE="5">最新<br>財報<br>季份</FONT></th>
+			<th align="center"><FONT SIZE="5">最新<br>營收<br>月份</FONT></th>
+
+			<th align="center" style="background-color:#FF359A;"><FONT SIZE="5">收<br>AA1</FONT></th>
+			<th align="center" style="background-color:#FF359A;"><FONT SIZE="5">收<br>A1</FONT></th>
+			<th align="center" style="background-color:#FF359A;"><FONT SIZE="5">收<br>A2</FONT></th>
+			<th align="center" style="background-color:#FF359A;"><FONT SIZE="5">收<br>BB1</FONT></th>
+			<th align="center" style="background-color:#FF359A;"><FONT SIZE="5">收<br>BB3</FONT></th>
+			<th align="center" style="background-color:#FF359A;"><FONT SIZE="5">收<br>B1</FONT></th>
+			<th align="center" style="background-color:#FF359A;"><FONT SIZE="5">收<br>C1</FONT></th>
+			<th align="center" style="background-color:#FF359A;"><FONT SIZE="5">收<br>C2</FONT></th>
+
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>AA1</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>AA2</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>A1</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>A2</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>BB1</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>BB2</FONT></th>			
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>BB3</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>B1</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>B2</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>C1</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">益<br>C2</FONT></th>
+
+
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>AA1</FONT></th>
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>AA2</FONT></th>
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>A1</FONT></th>
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>BB1</FONT></th>
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>BB2</FONT></th>			
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>BB3</FONT></th>
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>B1</FONT></th>
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>B2</FONT></th>
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>B3</FONT></th>
+			<th align="center" style="background-color:#921AFF;"><FONT SIZE="5">稅<br>C1</FONT></th>
+
+			<th align="center" style="background-color:#009393;"><FONT SIZE="5">E<br>AA1</FONT></th>
+			<th align="center" style="background-color:#009393;"><FONT SIZE="5">E<br>A1</FONT></th>
+			<th align="center" style="background-color:#009393;"><FONT SIZE="5">E<br>BB1</FONT></th>
+			<th align="center" style="background-color:#009393;"><FONT SIZE="5">E<br>B1</FONT></th>
+			<th align="center" style="background-color:#009393;"><FONT SIZE="5">E<br>B2</FONT></th>
+			<th align="center" style="background-color:#009393;"><FONT SIZE="5">E<br>C1</FONT></th>
+
+
+			<th align="center" style="background-color:#7D7DFF;"><FONT SIZE="5">存<br>AA1</FONT></th>
+			<th align="center" style="background-color:#7D7DFF;"><FONT SIZE="5">存<br>A1</FONT></th>
+			<th align="center" style="background-color:#7D7DFF;"><FONT SIZE="5">存<br>BB1</FONT></th>
+			<th align="center" style="background-color:#7D7DFF;"><FONT SIZE="5">存<br>BB2</FONT></th>
+			<th align="center" style="background-color:#7D7DFF;"><FONT SIZE="5">存<br>B1</FONT></th>
+			<th align="center" style="background-color:#7D7DFF;"><FONT SIZE="5">存<br>C1</FONT></th>
+			<th align="center" style="background-color:#7D7DFF;"><FONT SIZE="5">存<br>不評分1</FONT></th>
+
+			<th align="center" style="background-color:#FF9224;"><FONT SIZE="5">流<br>AA1</FONT></th>
+			<th align="center" style="background-color:#FF9224;"><FONT SIZE="5">流<br>A1</FONT></th>
+			<th align="center" style="background-color:#FF9224;"><FONT SIZE="5">流<br>BB1</FONT></th>
+			<th align="center" style="background-color:#FF9224;"><FONT SIZE="5">流<br>B1</FONT></th>
+			<th align="center" style="background-color:#FF9224;"><FONT SIZE="5">流<br>C1</FONT></th>
+
+
+
+
+
+
+			{% for sign in signs %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ sign.id }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cStockID }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cStockName}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cNewestSeason}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cNewestRev}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sign.cS1AA1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS1A1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS1A2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS1BB1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS1BB3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS1B1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS1C1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS1C2}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sign.cS2AA1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2AA2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2A1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2A2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2BB1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2BB2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2BB3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2B1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2B2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2C1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS2C2}}</FONT> </td>
+
+
+					<td align="center"><FONT SIZE="5">{{ sign.cS3AA1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS3AA2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS3A1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS3BB1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS3BB2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS3BB3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS3B1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS3B2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS3B3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS3C1}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sign.cS4AA1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS4A1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS4BB1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS4B1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS4B2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS4C1}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sign.cS5AA1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS5A1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS5BB1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS5BB2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS5B1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS5C1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS5No1}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sign.cS6AA1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS6A1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS6BB1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS6B1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cS6C1}}</FONT> </td>
+
+
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

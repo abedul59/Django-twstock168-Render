@@ -1,0 +1,149 @@
+﻿{% extends "baseusers_common.html" %}
+
+
+
+
+
+
+
+
+
+{% block content0 %}
+	<div class="contentbox">
+		<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="6">分類</FONT></th>
+		  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">標題</FONT></th>
+		  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">時間</FONT></th>
+		  <th align="left" style="background-color:#DDDDFF;"><FONT SIZE="6">點閱</FONT></th>
+	
+		</tr>
+		{% for unit0 in newsunits0 %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock">【{{ unit0.catego }}】</div></FONT></td>
+			<td><FONT SIZE="6"><a href="/detail/{{unit0.id}}/">{{ unit0.title }}</a></FONT></td>
+			<td><FONT SIZE="5">{{ unit0.pubtime }}</FONT></td>
+			<td align="center"><FONT SIZE="5">{{ unit0.press }}</FONT></td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前沒有任何公告！</FONT></p>
+			</div>
+		{% endfor %}
+
+		</table>
+		<br><br><br>
+		<table width="100%">
+{% endblock %}
+
+
+
+
+
+{% block append %}
+	<a href="/jonyi_enterStockFavAdmin/" title="新增股票 至 我的最愛">
+	<FONT SIZE="7">新增股票 至 我的最愛</FONT></a>
+	<br><br><br>
+	<a href="/jonyi_StoFavlistall/" title="列出所有 我的最愛 股票">
+	<FONT SIZE="7">列出所有 我的最愛 股票</FONT></a>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+{% block content1 %}
+<div class="contentbox">
+		<table width="100%">
+		<tr>		  
+		<th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">股票代碼</FONT></th>
+		  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">股票名稱</FONT></th>
+
+
+
+
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估EPS</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">最新價格</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最高價</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最低價</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">上面空間</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">下面風險</FONT></th>
+		 <th align="left" style="background-color:#64A600;"><FONT SIZE="6">風險<br>報酬<br>比率</FONT></th>
+
+
+
+
+
+		  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">建置時間</FONT></th>
+		  <th align="left" style="background-color:#FF5151;"><FONT SIZE="6">刪除</FONT></th>
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock"><a href="{{ unit.cDBURL}}">【{{ unit.cStockID}}】</a></div></FONT></td>
+			<td><FONT SIZE="6">{{ unit.cStockName }}</FONT></td>
+
+
+			<td><FONT SIZE="6">{{ unit.cScore1st}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cScore2nd}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cScore3rd}}</FONT></td>
+
+
+			<td><FONT SIZE="6">{{ unit.cPredict_EPS}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cTodayClose}}</FONT></td>
+
+			<td><FONT SIZE="6">{{ unit.cPredict_high_price}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cPredict_low_price}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_up_profit}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_down_loss}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cRisk_reward}}</FONT></td>
+
+
+
+
+			<td align="center"><FONT SIZE="5">{{ unit.pubtime }}</FONT></td>
+			<td><FONT SIZE="6">
+
+				<a href="/newsdelete_jonyi/{{unit.id}}/" title="股票刪除">D</a></FONT>
+			</td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前我的最愛股票資料庫中沒有任何資料！</FONT></p>
+			</div>
+		{% endfor %}
+
+
+
+
+
+		</table>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block exit %}
+		<div class="topfunction">
+		{% if currentpage > 1 %}
+			<a href="/usersmain_jonyi/1/" title="上一頁">
+			上一頁</a>
+		{% endif %}
+		{% if currentpage < totpage %}
+			<a href="/usersmain_jonyi/2/" title="下一頁">
+			下一頁</a>
+		{% endif %}
+		 </div>
+	</div>
+
+{% endblock %}
+

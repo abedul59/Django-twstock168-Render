@@ -1,0 +1,597 @@
+﻿{% extends "baseusers_test168.html" %}
+
+
+
+
+
+
+
+
+
+{% block content0 %}
+	<div class="contentbox">
+		<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#C4E1FF;"><FONT SIZE="6">分類</FONT></th>
+		  <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">標題</FONT></th>
+		  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">時間</FONT></th>
+		  <th align="left" style="background-color:#DDDDFF;"><FONT SIZE="6">點閱</FONT></th>
+	
+		</tr>
+		{% for unit0 in newsunits0 %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock">【{{ unit0.catego }}】</div></FONT></td>
+			<td><FONT SIZE="6"><a href="/detail/{{unit0.id}}/">{{ unit0.title }}</a></FONT></td>
+			<td><FONT SIZE="5">{{ unit0.pubtime }}</FONT></td>
+			<td align="center"><FONT SIZE="5">{{ unit0.press }}</FONT></td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前沒有任何公告！</FONT></p>
+			</div>
+		{% endfor %}
+
+		</table>
+		<br><br><br>
+		<table width="100%">
+{% endblock %}
+
+
+{% block append %}
+	<a href="/test168_enterStockFavAdmin/" title="新增股票 至 我的最愛">
+	<FONT SIZE="7">新增股票 至 我的最愛</FONT></a>
+	<br><br><br>
+	<a href="/test168_StoFavlistall/" title="列出所有 我的最愛 股票">
+	<FONT SIZE="7">列出所有 我的最愛 股票</FONT></a>
+{% endblock %}
+
+
+{% block content %}
+	<div class="contentbox">
+		<table width="100%">
+		<tr>		  
+		<th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">股票代碼</FONT></th>
+		  <th align="left" style="background-color:#D2A2CC;"><FONT SIZE="6">股票名稱</FONT></th>
+
+
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">最新評分</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">上個月<br>評分</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">上上個月<br>評分</FONT></th>
+
+
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估EPS</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">最新價格</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最高價</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">預估<br>最低價</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">上面空間</FONT></th>
+		 <th align="left" style="background-color:#D9FFFF;"><FONT SIZE="6">下面風險</FONT></th>
+		 <th align="left" style="background-color:#64A600;"><FONT SIZE="6">風險<br>報酬<br>比率</FONT></th>
+
+
+		  <th align="left" style="background-color:#D7FFEE;"><FONT SIZE="6">建置時間</FONT></th>
+		  <th align="left" style="background-color:#FF5151;"><FONT SIZE="6">刪除</FONT></th>
+		</tr>
+		{% for unit in newsunits %}
+			<tr class="alt">
+			<td><FONT SIZE="5"><div class="typeblock"><a href="{{ unit.cDBURL}}">【{{ unit.cStockID}}】</a></div></FONT></td>
+			<td><FONT SIZE="6">{{ unit.cStockName }}</FONT></td>
+
+
+			<td><FONT SIZE="6">{{ unit.cScore1st}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cScore2nd}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cScore3rd}}</FONT></td>
+
+
+			<td><FONT SIZE="6">{{ unit.cPredict_EPS}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cTodayClose}}</FONT></td>
+
+			<td><FONT SIZE="6">{{ unit.cPredict_high_price}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cPredict_low_price}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_up_profit}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cNew_down_loss}}</FONT></td>
+			<td><FONT SIZE="6">{{ unit.cRisk_reward}}</FONT></td>
+
+
+
+
+			<td align="center"><FONT SIZE="5">{{ unit.pubtime }}</FONT></td>
+			<td><FONT SIZE="6">
+
+				<a href="/newsdelete_test168/{{unit.id}}/" title="股票刪除">D</a></FONT>
+			</td>
+			</tr>
+		{% empty %}
+			<div class="status warning">
+				<p><FONT SIZE="6"><span>注意</span> 目前我的最愛股票資料庫中沒有任何資料！</FONT></p>
+			</div>
+		{% endfor %}
+
+
+
+
+
+		</table>
+
+
+
+<br><br><br>
+
+
+<table width="100%">
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stockKn/"><FONT SIZE="7">#1-0# 外部股東稅前報酬率(Kn值)即時計算</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#73BF00;">
+		 <a href="/viewsISQuery/"><FONT SIZE="7">損益表 季表 簡易版查詢</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#73BF00;">
+		 <a href="/viewsBSQuery/"><FONT SIZE="7">資產負債表 季表 簡易版查詢</FONT></a>
+		 </th>
+		</tr>
+
+                            
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_Rev/"><FONT SIZE="7">#0-1# 六大指標多重檢驗 - 營收</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_Prof/"><FONT SIZE="7">#0-2# 六大指標多重檢驗 - 營益率</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_NetInc/"><FONT SIZE="7">#0-3# 六大指標多重檢驗 - 稅後淨利YoY</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_EPS/"><FONT SIZE="7">#0-4# 六大指標多重檢驗 - EPS</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_InvTO/"><FONT SIZE="7">#0-5# 六大指標多重檢驗 - 存貨週轉率</FONT></a>
+		 </th>
+		</tr>	
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FF60AF;">
+		 <a href="/DC_Cashflow/"><FONT SIZE="7">#0-6# 六大指標多重檢驗 - 現金流量</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FFE6FF;">
+		 <a href="/DB_DCstock6sign/"><FONT SIZE="7">六大指標多重檢驗 舊資料庫</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/DCstock6listall202106/"><FONT SIZE="7">#DB21-06-0# 顯示 2021年6月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</FONT></a>
+		</th>
+		</tr>
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/DCstock6listall202107/"><FONT SIZE="7">#DB21-07-0# 顯示 2021年7月營收公佈後評分2.5分以上六大指標多重驗證資料  by 股票代號</FONT></a>
+		</th>
+		</tr>
+</table>
+
+
+
+
+<br><br><br>
+
+
+<table width="100%">
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6getOne/"><FONT SIZE="7">#1-1# 六大指標 單家公司評分 資料庫歷史紀錄查詢</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6/"><FONT SIZE="7">#1-2# 六大指標即時計算（舊版 逐漸不更新）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6x/"><FONT SIZE="7">#1-3a# 六大指標即時計算（新版優化）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6xDB/"><FONT SIZE="7">#1-3b# 六大指標即時計算（新版優化plus資料庫）</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6TSE/"><FONT SIZE="7">#1-4# 六大指標 上市類股查詢（2021年7月）</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#81C0C0;">
+		 <a href="/stock6OTC/"><FONT SIZE="7">#1-5# 六大指標 上櫃類股查詢（2021年7月）</FONT></a>
+		 </th>
+		</tr>
+
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#ADFEDC;">
+		 <a href="/stock6Concepts/"><FONT SIZE="7">#1-6# 六大指標 概念股查詢（2021年7月）</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#D9FFFF;">
+		 <a href="/SubCatslistall202105/"><FONT SIZE="7">2021年5月營收公佈後 子產業 六大指標評分平均趨勢</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#D9FFFF;">
+		 <a href="/SubCatslistall202106/"><FONT SIZE="7">2021年6月營收公佈後 子產業 六大指標評分平均趨勢</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#D9FFFF;">
+		 <a href="/SubCatslistall202107/"><FONT SIZE="7">2021年7月營收公佈後 子產業 六大指標評分平均趨勢</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+                            
+		 <th align="left" style="background-color:#ADFEDC;">
+		 <a href="/stock6SubCats/"><FONT SIZE="7">#1-7# 六大指標 子產業查詢（2021年7月）</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FFE6FF;">
+		 <a href="/DB_stock6sign/"><FONT SIZE="7">六大指標 舊資料庫</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202106/"><FONT SIZE="7">#DB21-06-1# 列出2021年6月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202106score/"><FONT SIZE="7">#DB21-06-2# 列出2021年6月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202107/"><FONT SIZE="7">#DB21-07-1# 列出2021年7月營收公佈後全部六大指標資料 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stock6listall202107score/"><FONT SIZE="7">#DB21-07-2# 列出2021年7月營收公佈後全部六大指標資料 by 評分高低</FONT></a>
+		</th>
+		</tr>
+
+
+</table>
+
+<br><br><br>
+
+
+<table width="100%">
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPrice5y/"><FONT SIZE="7">#2-1# 5年歷史價格即時查詢</FONT></a>
+		</th>	
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg/"><FONT SIZE="7">#2-2# 本益比區間即時計算（舊版 逐漸不更新）</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegx/"><FONT SIZE="7">#2-2# 本益比區間即時計算（新版優化）</FONT></a>
+		</th>	
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg2/"><FONT SIZE="7">#2-3# 本益比區間即時計算 簡易版（自行調整參數）</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERseg3/"><FONT SIZE="7">#2-4# 本益比區間即時計算 進階版（自行調整數字）</FONT></a>
+		</th>	
+		</tr>
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegDiv/"><FONT SIZE="7">#2-5# 本益比區間（還權）即時計算</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegPEG/"><FONT SIZE="7">#2-6# 本益比區間PEG即時計算</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FFE6FF;">
+		 <a href="/DB_stockPERseg/"><FONT SIZE="7">本益比區間 舊資料庫</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202106/"><FONT SIZE="7">#DB21-06-3# 列出2021年6月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202106score/"><FONT SIZE="7">#DB21-06-4# 列出2021年6月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202107/"><FONT SIZE="7">#DB21-07-3# 列出2021年7月營收公佈後評分2.5分以上股票 的本益比區間 by 代號</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>		 
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERseglistall202107score/"><FONT SIZE="7">#DB21-07-4# 列出2021年7月營收公佈後評分2.5分以上股票 的本益比區間 by 風險報酬倍數</FONT></a>
+		</th>
+		</tr>
+
+
+		<tr>
+		  <th align="left" style="background-color:#C6A300;">
+		<a href="/stockPERsegStable/"><FONT SIZE="7">#2-7# 本益比區間波動值計算</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FFE6FF;">
+		 <a href="/DB_stockPERsegStable/"><FONT SIZE="7">本益比區間波動值 資料庫</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/stockPERsegStablelistall2021Q2/"><FONT SIZE="7">列出2021年Q2財報和2021年7月營收公佈後評分2.5分以上，穩定本益比區間（上下不超過30%）的股票</FONT></a>
+		</th>
+		</tr>
+
+
+</table>
+
+<br><br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#73BF00;">
+		<a href="/Epsachiever/"><FONT SIZE="7">#3-1# EPS達成率</FONT></a>
+		</th>	
+		</tr>
+
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FFE6FF;">
+		 <a href="/DB_EPSachiever/"><FONT SIZE="7">EPS達成率 資料庫</FONT></a>
+		 </th>
+		</tr>
+
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSachieve2021Q2listall/"><FONT SIZE="7">列出2021年Q2財報和7月營收公佈後評分2.5分以上股票的EPS達成率超過66%的名單</FONT></a>
+		</th>
+		</tr>
+
+		</table>
+
+<br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#00CACA;">
+		<a href="/StockCapGetter/"><FONT SIZE="7">#4-1# 股本變化率</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FFE6FF;">
+		 <a href="/DB_StockCapGetter/"><FONT SIZE="7">股本變化率 資料庫</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/StockCapVar2021Q2listall/"><FONT SIZE="7">列出資料庫2021年Q2財報和2021年7月營收公佈後評分2.5分以上股票的股本變化率所有資料</FONT></a>
+		</th>
+		</tr>
+
+
+		</table>
+
+<br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#FFC1E0;">
+		<a href="/EPSnProfitGetter/"><FONT SIZE="7">#5-1# EPS和營益率創新高查詢</FONT></a>
+		</th>	
+		</tr>
+
+
+		<tr>
+	
+                            
+		 <th align="left" style="background-color:#FFE6FF;">
+		 <a href="/DB_EPSnProfitGetter/"><FONT SIZE="7">EPS和營益率創新高 資料庫</FONT></a>
+		 </th>
+		</tr>
+
+		<tr>
+		 <th align="left" style="background-color:#D9FFFF;">
+		<a href="/EPSnProfit2021Q2listall/"><FONT SIZE="7">列出資料庫2021年Q2財報和2021年7月營收公布後評分2.5分以上，所有這八季EPS「或」營益率創新高的股票</FONT></a>
+		</th>
+		</tr>
+
+
+		</table>
+
+
+
+<br><br>
+
+
+<table width="100%">
+		<tr>
+		  <th align="left" style="background-color:#FF8040;">
+		<a href="/BigMoney/"><FONT SIZE="7">#6-1# 大戶持有比率查詢</FONT></a>
+		</th>	
+		</tr>
+
+
+
+</table>
+
+<br><br>
+
+<table width="100%">
+
+		<tr>
+		  <th align="left" style="background-color:#9999CC;">
+		<a href="/AREAdownloads/"><FONT SIZE="7">付費使用者下載專區</FONT></a>
+		</th>	
+		</tr>
+
+
+		</table>		
+
+
+
+
+		<div class="topfunction">
+		{% if currentpage > 1 %}
+			<a href="/usersmain_test168/1/" title="上一頁">
+			上一頁</a>
+		{% endif %}
+		{% if currentpage < totpage %}
+			<a href="/usersmain_test168/2/" title="下一頁">
+			下一頁</a>
+		{% endif %}
+		 </div>
+	</div>
+
+
+
+
+
+{% endblock %}

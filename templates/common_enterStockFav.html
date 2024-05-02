@@ -1,0 +1,635 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>增加股票到我的最愛裡查詢台股本益比區間 </title>
+
+
+
+
+
+</head>
+
+<body>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="left">
+  <form action="/./" method="POST" name="form1">
+	{% csrf_token %}
+   
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid" style="font-size:40px"></FONT>          
+    <div><FONT SIZE="7">請輸入最新已公布營收月份數字(1到12)：<input type="text" name="monthid" style="font-size:40px"></FONT>
+          
+	<br><br>
+	<input type="submit" value="送出資料" style="font-size:60px"></div>
+	<div><FONT SIZE="6">說明：以上兩個空格都必須填入。且為了正確估算未來一整年的營收，所以請按照最新已公佈的營收月份，輸入正確的數字1到12，否則出來的數據會是錯誤的。</FONT></div>
+</form>
+</td>
+</tr>
+</table>
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+
+<td align="center" style="background-color:#FFC1E0;"><div><FONT SIZE="7">股票代號</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+</tr>
+
+<td align="center" style="background-color:#FFC1E0;"><div><FONT SIZE="7">股票名稱</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+</tr>
+</table>
+
+<br><br>
+
+
+{% if eps1N == '2020' %}
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">歷史股價和EPS資料（程式未排除負數和極端值）<br>（2021/3/31前，2020年Q4財報已公佈，2020/109年都是實際數據。2021/110年都為預測值。）</FONT></caption>
+
+
+
+<tr>
+
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">年份</FONT></div></td>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">最高價</FONT></div></td>
+
+
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">最低價</FONT></div></td>
+
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">EPS</FONT></div></td>
+
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">本益比高點</FONT></div></td>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">本益比低點</FONT></div></td>
+
+
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2022/111年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000">{{Predict_high_price}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000">{{Predict_low_price}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000">{{Predict_EPS}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000"></FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2020/109年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2019/108年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2018/107年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2017/106年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2016/105年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L5}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">平均</FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H_average}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L_average}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">擇一較低</FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+
+
+
+{% elif eps1N == '2019' %}
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">歷史股價和EPS資料（程式未排除負數和極端值）<br>（在2021年4月財報公佈前，109年除了H和L外，都是預估值（紅色）。）</FONT></caption>
+
+
+
+<tr>
+
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">年份</FONT></div></td>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">最高價</FONT></div></td>
+
+
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">最低價</FONT></div></td>
+
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">EPS</FONT></div></td>
+
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">本益比高點</FONT></div></td>
+<td align="center" style="background-color:#DCB5FF;"><div><FONT SIZE="7">本益比低點</FONT></div></td>
+
+
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2021/110年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000">{{Predict_high_price}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000">{{Predict_low_price}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000">{{Predict_EPS}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000"></FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2020/109年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000">{{Predict_EPS0}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7" color="#FF0000"></FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2019/108年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2018/107年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2017/106年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2016/105年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2015/104年</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{H6}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{L6}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">平均</FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H_average}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L_average}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">擇一較低</FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7"></FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_H}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{PER_L}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+{% endif %}
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">歷史營收資料（若擇一較低為負數，就無投資價值）</FONT></caption>
+
+
+<tr>
+
+<td align="center"><div><FONT SIZE="7">年月</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">年增率</FONT></div></td>
+
+
+
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{rYoY1N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pYoY1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{rYoY2N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pYoY2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{rYoY3N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pYoY3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{rYoY4N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pYoY4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{rYoY5N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pYoY5}}</FONT></div></td>
+</tr>
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">{{rYoY6N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pYoY6}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">平均值</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pYoY6Average}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#9999CC;"><div><FONT SIZE="7">擇一較低</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pRevYoY}}</FONT></div></td>
+</tr>
+
+</table>
+
+<br><br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">預估未來營收（營收若無成長，就無投資價值）</FONT></caption>
+
+
+<tr>
+
+<td align="center"><div><FONT SIZE="7">年月</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">金額（單位：億）</FONT></div></td>
+
+
+
+</tr>
+
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r1N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r1}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r2N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r2}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r3N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r3}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r4N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r4}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r5N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r5}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r6N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r6}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r7N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r7}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r8N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r8}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r9N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r9}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r10N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r10}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r11N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r11}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center" style="background-color:#FF7575;"><div><FONT SIZE="7">{{r12N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{r12}}</FONT></div></td>
+</tr>
+
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">2021年已公佈的營收總和</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{thisYear_Sum}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">預估2021年尚未公佈營收總和</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{theRest_Predict}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">預估2021年全年營收（九月後估下一年營收）</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{Rev_Predict}}</FONT></div></td>
+</tr>
+
+</table>
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">歷史淨利資料（程式未排除極端值和負數）</FONT></caption>
+
+
+<tr>
+
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">單位：%</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{Net1N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet1}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{Net2N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet2}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{Net3N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet3}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{Net4N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet4}}</FONT></div></td>
+
+</tr>
+
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">平均</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet4Average}}</FONT></div></td>
+
+</tr>
+
+
+
+</table>
+
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">計算未來EPS（若無成長，就無投資價值）</FONT></caption>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">預估淨利</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{Net_Predict}}</FONT></div></td>
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">股本</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{capital_stock}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">預估EPS</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{Predict_EPS}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">預估股價高點</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{Predict_high_price}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">預估股價低點</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{Predict_low_price}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">最新成交價</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{yahoo_latest_tradePrice}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">往上報酬</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{New_up_profit}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">往下風險</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{New_down_loss}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">風險報酬倍數</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{risk_reward}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">2021年出現過的最高價</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{H0}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">預測最高價和<br>今年已現最高價的<br>溢跌價比率</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{Satisf}}</FONT></div></td>
+
+</tr>
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">2021年高點是否已交代（距離5%）</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{highif}}</FONT></div></td>
+
+</tr>
+
+</table>
+
+<br>
+<br>
+
+
+
+<br>
+<br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/usersmain_test168/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+</body>
+
+</html>

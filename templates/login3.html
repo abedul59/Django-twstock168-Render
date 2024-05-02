@@ -1,0 +1,13 @@
+<html>
+<form action="." method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">帳號：</FONT><input type="text" name="username" id="username" style="font-size:80px" /></div>
+    <br><br>
+    <div><FONT SIZE="7">密碼：</FONT><input type="password" name="password" id="password" style="font-size:80px" /></div>
+    <br><br>
+    <div>
+    <input type="submit" name="button" id="button" value="App試用者登入"  style="font-size:90px" />
+    </div> 
+    <span style="color:red">{{message}}</span>
+</form>
+</html>

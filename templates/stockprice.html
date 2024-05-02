@@ -1,0 +1,103 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢台股即時和歷史價格</title>
+
+
+{% load static %}
+
+</head>
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="/stockprice/" method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid"  style="font-size:40px"></FONT>
+          <input type="submit" value="送出資料"  style="font-size:40px"></div> 
+
+	<div><FONT SIZE="7">接收到的資料（台股代號）：{{mess}}</FONT></div>
+
+</form>
+</td>
+</tr>
+</table>
+<br><br>
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">股價詳細資料</FONT></caption>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">項目</FONT></div></td> <td align="center"><div><FONT SIZE="7">數值</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">股票代號</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{stock_id_name}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">最新交易價格</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{yahoo_latest_tradePrice}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">最新交易日期</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{latest_trade_date}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">開盤價</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{open}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">最高價</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{high}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">最低價</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{low}}</FONT></div></td>
+</tr>
+
+<tr>
+<td align="center"><div><FONT SIZE="7">收盤價</FONT></div></td> <td align="center"><div><FONT SIZE="7">{{close}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">今年為止漲幅</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{thisYearGain}}</FONT></div></td>
+</tr>
+
+
+<tr>
+<td align="center"><div><FONT SIZE="7">最新營收月份</FONT></div></td> <td><div align="center"><FONT SIZE="7">{{newest_Rev_month}}</FONT></div></td>
+</tr>
+
+
+</table>
+
+
+
+
+
+
+<br><br><br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/home/" title="home"><FONT SIZE="6">回首頁</FONT></a></td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>

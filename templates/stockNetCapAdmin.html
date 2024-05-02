@@ -1,0 +1,162 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢台股過去四季的稅後淨利率和股本（寫入資料庫）</title>
+
+
+
+
+
+</head>
+
+<body>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="left">
+  <form action="." method="POST" name="form1">
+	{% csrf_token %}
+   
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid" style="font-size:40px"></FONT>          
+    
+          
+	<br><br>
+	<input type="submit" value="送出資料" style="font-size:60px"></div>
+	<div><FONT SIZE="6">說明：查詢台股過去四季的稅後淨利率和股本（寫入資料庫）</FONT></div>
+</form>
+</td>
+</tr>
+</table>
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+
+<td align="center" style="background-color:#FFC1E0;"><div><FONT SIZE="7">股票代號</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+</tr>
+
+<td align="center" style="background-color:#FFC1E0;"><div><FONT SIZE="7">股票名稱</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+</tr>
+</table>
+
+<br><br>
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">歷史淨利資料（程式未排除極端值和負數）</FONT></caption>
+
+
+<tr>
+
+<td align="center"><div><FONT SIZE="7">年季</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">單位：%</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{Net1N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet1}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{Net2N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet2}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{Net3N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet3}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">{{Net4N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet4}}</FONT></div></td>
+
+</tr>
+
+
+
+<tr>
+
+<td align="center" style="background-color:#FFAAD5;"><div><FONT SIZE="7">平均</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pNet4Average}}</FONT></div></td>
+
+</tr>
+
+
+
+</table>
+
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">計算未來EPS - 股本</FONT></caption>
+
+
+
+
+<tr>
+
+<td align="center" style="background-color:#A3D1D1;"><div><FONT SIZE="7">股本</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{capital_stock}}</FONT></div></td>
+
+</tr>
+
+</table>
+
+
+
+
+
+<br>
+<br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/adminmain/" title="adminmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+</body>
+
+</html>

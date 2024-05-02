@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示2020年Q3和10月期 六大指標資料  {{Xgroup}} by 評分高低</title>
+	</head>
+	<body>
+		<h2>2020年Q3和10月期 六大指標資料  {{Xgroup}} by 評分高低</h2>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">編號</FONT></th>
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">股票代碼</FONT></th>
+			<th align="center" style="background-color:#00CACA;"><FONT SIZE="5">股票名稱</FONT></th>
+
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">指1-收</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">指2-益</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">指3-淨</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">指4-E</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">指5-存</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">指6-流</FONT></th>
+			<th align="center" style="background-color:#EA0000;"><FONT SIZE="5">平均</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">增減</FONT></th>
+			<th align="center" style="background-color:#2894FF;"><FONT SIZE="5">時間</FONT></th>
+			{% for sign in signs %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ sign.id }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cStockID }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cStockName}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sign.cSign2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign4}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign5}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign6}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cAverageScore}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cLossGain}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.pubtime}}</FONT> </td>	
+				</tr>
+			{% endfor %}
+		</table>
+
+
+<br>
+<br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/stock6TSE/" title="stock6TSE"><FONT SIZE="6">回查詢上市公司類股六大指標評分功能頁</FONT></a></td>
+</tr>
+</table>
+
+<br>
+<br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/usersmain/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+	</body>
+</html>
+	

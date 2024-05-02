@@ -1,0 +1,65 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>輸入代號和天數，顯示股價圖</title>
+
+
+{% load static %}
+
+</head>
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="/post2/" method="POST" name="form1">
+    {% csrf_token %}
+    <div>請輸入美股代號：<input type="text" name="stockid"  style="font-size:40px">
+
+
+	<div><FONT SIZE="7">接收到的資料：{{mess}}</FONT></div>
+
+    <div>請輸入美股圖形天數：<input type="text" name="xdays" />
+      <input type="submit" value="送出資料"  style="font-size:40px"></div>
+
+	<div><FONT SIZE="7">接收到的資料2：{{mess2}}</FONT></div>
+
+</form>
+</td>
+</tr>
+
+
+
+
+
+</table>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/USAStockPicK2/{{mess}}/{{mess2}}/" title="K"><FONT SIZE="7">K線圖（選擇天數）</FONT></a></td>
+
+</tr>
+</table>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/home/" title="home"><FONT SIZE="7">回首頁</FONT></a></td>
+
+</tr>
+
+</table>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,485 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢 損益表 合併季表 簡易版</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="/viewsISQuery/" method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid"  style="font-size:40px"></FONT> <br><br>
+          <input type="submit" value="送出資料"  style="font-size:60px"></div>
+
+
+
+</td>
+</tr>
+</table>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<caption><FONT SIZE="6">損益表 合併季表 簡易版</FONT></caption>
+
+
+<tr>	
+<td style="background-color:#00CACA;" align="center"><div><FONT SIZE="7">台股代號：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#00CACA;" align="center"><div><FONT SIZE="7">股票名稱：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+</tr>
+
+
+
+
+
+
+</table>
+
+
+
+ 	
+
+
+<br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">損益表 合併季表 簡易版 資料</FONT></caption>
+
+
+
+<tr>
+
+<td align="center"><div><FONT SIZE="7">期別</FONT></div></td>
+
+
+<td  style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">{{IS_Time.0}}</FONT></div></td>
+
+<td  style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">{{IS_Time.1}}</FONT></div></td>
+
+<td  style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">{{IS_Time.2}}</FONT></div></td>
+
+<td  style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">{{IS_Time.3}}</FONT></div></td>
+
+<td  style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">{{IS_Time.4}}</FONT></div></td>
+
+<td  style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">{{IS_Time.5}}</FONT></div></td>
+
+<td  style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">{{IS_Time.6}}</FONT></div></td>
+
+<td  style="background-color:#D3A4FF;" align="center"><div><FONT SIZE="7">{{IS_Time.7}}</FONT></div></td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">營收淨額</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.0.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.0.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.0.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.0.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.0.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.0.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.0.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.0.7}}</FONT></div></td>
+
+
+
+</tr>
+
+
+
+
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">銷貨成本</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.1.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.1.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.1.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.1.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.1.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.1.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.1.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.1.7}}</FONT></div></td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">營業毛利</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.2.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.2.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.2.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.2.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.2.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.2.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.2.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.2.7}}</FONT></div></td>
+
+
+</tr>
+
+
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">營業費用</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.3.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.3.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.3.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.3.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.3.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.3.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.3.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.3.7}}</FONT></div></td>
+
+
+</tr>
+
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">研究發展費</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.4.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.4.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.4.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.4.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.4.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.4.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.4.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.4.7}}</FONT></div></td>
+
+</tr>
+
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">營業利益</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.5.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.5.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.5.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.5.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.5.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.5.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.5.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.5.7}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">營業外收入及支出</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.6.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.6.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.6.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.6.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.6.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.6.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.6.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.6.7}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">稅前淨利</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.7.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.7.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.7.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.7.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.7.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.7.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.7.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.7.7}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">合併總損益</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.8.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.8.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.8.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.8.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.8.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.8.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.8.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.8.7}}</FONT></div></td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">本期綜合損益總額</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.9.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.9.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.9.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.9.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.9.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.9.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.9.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.9.7}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">歸屬母公司淨利（損）</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.10.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.10.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.10.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.10.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.10.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.10.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.10.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.10.7}}</FONT></div></td>
+
+</tr>
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">歸屬非控制權益淨利（損）</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.11.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.11.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.11.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.11.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.11.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.11.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.11.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.11.7}}</FONT></div></td>
+
+</tr>
+
+
+
+<tr>
+
+<td style="background-color:#FFA6FF;" align="center"><div><FONT SIZE="7">每股盈餘</FONT></div></td>
+
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.12.0}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.12.1}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.12.2}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.12.3}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.12.4}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.12.5}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.12.6}}</FONT></div></td>
+
+<td align="center"><div><FONT SIZE="7">{{ISitem.12.7}}</FONT></div></td>
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/usersmain/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+</body>
+
+</html>

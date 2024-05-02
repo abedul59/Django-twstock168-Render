@@ -1,0 +1,86 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢MacroWave C資料（寫入資料庫）</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="." method="POST" name="form1">
+    {% csrf_token %}
+    <div>
+    <FONT SIZE="7">請輸入LInum：<input type="text" name="LInum"  style="font-size:40px"></FONT> <br><br>
+    <FONT SIZE="7">請輸入LITime：<input type="text" name="LITime"  style="font-size:40px"></FONT> <br><br><br>
+
+    <FONT SIZE="7">請輸入NewestRate：<input type="text" name="NewestRate"  style="font-size:40px"></FONT> <br><br>
+    <FONT SIZE="7">請輸入MCTime2：<input type="text" name="MCTime2"  style="font-size:40px"></FONT> <br><br><br>
+    <FONT SIZE="7">請輸入MCnum2：<input type="text" name="MCnum2"  style="font-size:40px"></FONT> <br><br>
+
+    <FONT SIZE="7">請輸入NewestYoY1：<input type="text" name="NewestYoY1"  style="font-size:40px"></FONT> <br><br>
+    <FONT SIZE="7">請輸入NewestYoY2：<input type="text" name="NewestYoY2"  style="font-size:40px"></FONT> <br><br>
+
+    <FONT SIZE="7">請輸入CPTime：<input type="text" name="CPTime"  style="font-size:40px"></FONT> <br><br>
+    <FONT SIZE="7">請輸入CPnum：<input type="text" name="CPnum"  style="font-size:40px"></FONT> <br><br>
+
+          <input type="submit" value="送出資料"  style="font-size:60px">
+          </div>
+
+
+
+</td>
+</tr>
+</table>
+
+<br><br>
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/adminmain/" title="adminmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+
+</body>
+
+</html>

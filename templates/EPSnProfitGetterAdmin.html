@@ -1,0 +1,157 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢EPS和營益率最新季創新高的股票（寫入資料庫）</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+    	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+    {% else %}
+        <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+    {% endif %}
+</td>
+</tr>
+</table>
+
+
+<br><br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="/EPSnProfitGetterAdmin/" method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid"  style="font-size:40px"></FONT> <br>
+          <input type="submit" value="送出資料"  style="font-size:40px"></div>
+
+
+</form>
+</td>
+</tr>
+</table>
+
+
+<br>
+<br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="6">EPS和營益率最新季創新高觀察表</FONT></caption>
+
+<tr>	
+<td style="background-color:#FFFFCE;" align="center"><div><FONT SIZE="7">台股代號：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{mess}}</FONT></div></td>
+</tr>
+
+
+<tr>	
+<td style="background-color:#FFFFCE;" align="center"><div><FONT SIZE="7">股票名稱：</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{stock_name}}</FONT></div></td>
+</tr>
+
+
+<tr>	
+<td style="background-color:#DAB1D5;" align="center"><div><FONT SIZE="7">年季</FONT></div></td>
+<td style="background-color:#DAB1D5;" align="center"><div><FONT SIZE="7">EPS</FONT></div></td>
+<td style="background-color:#DAB1D5;" align="center"><div><FONT SIZE="7">營益率</FONT></div></td>
+</tr>
+
+
+
+<tr>	
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">{{Prof1N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps1}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pProf1}}</FONT></div></td>
+</tr>
+
+<tr>	
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">{{Prof2N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps2}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pProf2}}</FONT></div></td>
+</tr>
+
+<tr>	
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">{{Prof3N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps3}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pProf3}}</FONT></div></td>
+</tr>
+
+<tr>	
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">{{Prof4N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps4}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pProf4}}</FONT></div></td>
+</tr>
+
+<tr>	
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">{{Prof5N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps5}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pProf5}}</FONT></div></td>
+</tr>
+
+<tr>	
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">{{Prof6N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps6}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pProf6}}</FONT></div></td>
+</tr>
+
+<tr>	
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">{{Prof7N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps7}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pProf7}}</FONT></div></td>
+</tr>
+
+<tr>	
+<td style="background-color:#0072E3;" align="center"><div><FONT SIZE="7">{{Prof8N}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{eps8}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{pProf8}}</FONT></div></td>
+</tr>
+
+<tr>	
+<td style="background-color:#FF9224;" align="center"><div><FONT SIZE="7">最新季創新高</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{epsNewHigh}}</FONT></div></td>
+<td align="center"><div><FONT SIZE="7">{{ProfNewHigh}}</FONT></div></td>
+</tr>
+
+
+
+</table>
+
+
+<br>
+<br>
+
+
+
+
+
+<br>
+<br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/usersmain/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+</table>
+
+</body>
+
+</html>

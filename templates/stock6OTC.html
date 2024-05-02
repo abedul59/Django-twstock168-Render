@@ -1,0 +1,126 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>查詢上櫃公司類股六大指標評分</title>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td>
+
+    {% if request.user.is_authenticated %}
+   
+ 	<FONT SIZE="7">歡迎光臨！！</FONT>
+
+        <p><a href="/logout/"><FONT SIZE="7">登出</FONT></a></p>
+  
+  {% else %}
+       
+ <p><FONT SIZE="7">您尚未登入喔~</FONT></p>
+        <a href="/login/"><FONT SIZE="7">登入</FONT></a>
+ 
+   {% endif %}
+</td>
+</tr>
+
+</table>
+
+
+
+
+<br><br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<caption><FONT SIZE="7">查詢上櫃公司類股<br>六大指標評分</FONT></caption>
+
+<tr>
+  <td align="center">
+  <form action="/stock6OTC/" method="POST" name="form1">
+    {% csrf_token %}
+    <div>
+<br><br>
+<select style="font-size:50px;" name="groupid" id="groupid">
+    <option value="">請選擇類股</option>
+    <option value="otc1">上櫃化學工業</option>
+    <option value="otc2">上櫃文化創意產業</option>
+    <option value="otc3">上櫃紡織工業</option>
+    <option value="otc4">上櫃半導體工業</option>
+    <option value="otc5">上櫃生技醫療業</option>
+    <option value="otc6">上櫃光電業</option>
+    <option value="otc7">上櫃農業科技</option>
+    <option value="otc8">上櫃其他</option>
+    <option value="otc9">上櫃其他電子業</option>
+    <option value="otc10">上櫃油電燃氣業</option>
+    <option value="otc11">上櫃電子商務</option>
+    <option value="otc12">上櫃食品工業</option>
+    <option value="otc13">上櫃觀光事業</option>
+    <option value="otc14">上櫃通信網路業</option>
+    <option value="otc15">上櫃造紙工業</option>
+    <option value="otc16">上櫃貿易百貨業</option>
+    <option value="otc17">上櫃塑膠工業</option>
+    <option value="otc18">上櫃資訊服務</option>
+    <option value="otc19">上櫃電子通路</option>
+    <option value="otc20">上櫃電子零組件</option>
+    <option value="otc21">上櫃電腦及週邊設備業</option>
+    <option value="otc22">上櫃電器電纜</option>
+    <option value="otc23">上櫃電機機械</option>
+    <option value="otc24">上櫃橡膠工業</option>
+    <option value="otc25">上櫃鋼鐵工業</option>
+
+
+</select>
+
+</div>
+
+<br><br>
+          <input type="submit" value="送出資料"  style="font-size:60px"></div>
+
+
+</form>
+</td>
+</tr>
+</table>
+
+
+
+
+<br><br>
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/stock6listallotc/{{mess}}/" title="receivedurl"><FONT SIZE="7">上面選擇類股，按送出後，按此觀看</FONT></a></td>
+
+</tr>
+</table>
+
+
+<br><br>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+<tr>
+<td align="center"><a href="/usersmain/" title="usersmain"><FONT SIZE="6">回功能首頁</FONT></a></td>
+</tr>
+
+</table>
+
+</body>
+
+</html>

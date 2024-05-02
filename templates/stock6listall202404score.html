@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示所有資料</title>
+	</head>
+	<body>
+		<h2>顯示 2024年4月營收公佈後全部六大指標資料 by 評分高低</h2>
+
+
+
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">總家數</FONT></th>
+			<th align="center"><FONT SIZE="5">3分以上家數</FONT></th>
+			<th align="center"><FONT SIZE="5">2-2.9分家數</FONT></th>
+			<th align="center"><FONT SIZE="5">1-1.9分家數</FONT></th>
+			<th align="center"><FONT SIZE="5">0-0.9分家數</FONT></th>
+
+			<th align="center"><FONT SIZE="5">進步家數</FONT></th>
+			<th align="center"><FONT SIZE="5">持平家數</FONT></th>
+			<th align="center"><FONT SIZE="5">退步家數</FONT></th>
+
+
+				<tr>
+					<td align="center"><FONT SIZE="5"></FONT> </td>
+					<td align="center"><FONT SIZE="5">{{threeCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{twoCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{oneCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{zeroCategLength}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{gainCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{tieCategLength}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{lossCategLength}}</FONT> </td>
+				</tr>
+			
+		</table>
+
+<br><br>
+
+		<table border="1" cellpadding="0" cellspacing="0">
+			<th align="center"><FONT SIZE="5">編號</FONT></th>
+			<th align="center"><FONT SIZE="5">股票<br>代碼</FONT></th>
+			<th align="center"><FONT SIZE="5">股票<br>名稱</FONT></th>
+			<th align="center"><FONT SIZE="5">最新<br>財報<br>季份</FONT></th>
+			<th align="center"><FONT SIZE="5">最新<br>營收<br>月份</FONT></th>
+			<th align="center"><FONT SIZE="5">指標1-<br>營收</FONT></th>
+			<th align="center"><FONT SIZE="5">指標2-<br>營益率</FONT></th>
+			<th align="center"><FONT SIZE="5">指標3-<br>税後<br>淨利YoY</FONT></th>
+			<th align="center"><FONT SIZE="5">指標4-<br>EPS</FONT></th>
+			<th align="center"><FONT SIZE="5">指標5-<br>存貨<br>週轉率</FONT></th>
+			<th align="center"><FONT SIZE="5">指標6-<br>現金<br>流量</FONT></th>
+			<th align="center"><FONT SIZE="5">平均</FONT></th>
+			<th align="center"><FONT SIZE="5">增減</FONT></th>
+
+			<th align="center"><FONT SIZE="5">3月<br>評分</FONT></th>
+			<th align="center"><FONT SIZE="5">2月<br>評分</FONT></th>
+			<th align="center"><FONT SIZE="5">1月<br>評分</FONT></th>
+			<th align="center"><FONT SIZE="5">12月<br>評分</FONT></th>
+			<th align="center"><FONT SIZE="5">11月<br>評分</FONT></th>
+			<th align="center"><FONT SIZE="5">10月<br>評分</FONT></th>
+
+
+	
+		
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<th align="center"><FONT SIZE="5">資料<br>獲取<br>時間</FONT></th>
+			{% for sign in signs %}
+				<tr>
+					<td align="center"><FONT SIZE="5">{{ sign.id }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cStockID }}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cStockName}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cNewestSeason}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cNewestRev}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign1}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign2}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign3}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign4}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign5}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cSign6}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cAverageScore}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.cLossGain}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sign.sCore2403}}</FONT> </td>
+
+					<td align="center"><FONT SIZE="5">{{ sign.sCore2402}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.sCore2401}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.sCore2312}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.sCore2311}}</FONT> </td>
+					<td align="center"><FONT SIZE="5">{{ sign.sCore2310}}</FONT> </td>
+
+
+
+
+
+
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<td align="center"><FONT SIZE="5">{{ sign.pubtime}}</FONT> </td>	
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
+	

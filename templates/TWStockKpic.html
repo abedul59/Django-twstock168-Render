@@ -1,0 +1,80 @@
+﻿
+<html>
+
+<head>
+
+<meta charset='utf-8'>
+
+<title>輸入代號和天數，顯示股價圖</title>
+
+
+{% load static %}
+
+</head>
+
+<body>
+
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+  <td align="center">
+  <form action="." method="POST" name="form1">
+    {% csrf_token %}
+    <div><FONT SIZE="7">請輸入台股代號：<input type="text" name="stockid"  style="font-size:40px"></FONT></div>
+
+
+	<div><FONT SIZE="7">接收到的資料：{{mess}}</FONT></div>
+
+    <div><FONT SIZE="7">請輸入希望的台股圖形天數：</FONT><input type="text" name="xdays" style="font-size:40px">
+      <input type="submit" value="送出資料"  style="font-size:40px"></FONT></div>
+
+	<div><FONT SIZE="7">接收到的資料2：{{mess2}}</FONT></div>
+
+</form>
+</td>
+</tr>
+
+
+
+
+
+</table>
+
+<br>
+<br>
+
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="/TWStockPicK2/{{mess}}/{{mess2}}/" title="K"><FONT SIZE="7">顯示 K線圖（選擇天數）</FONT></a></td>
+
+</tr>
+</table>
+
+
+<br>
+<br>
+
+
+<table border="2" cellpadding="1" cellspacing="5"  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<td align="center"><a href="https://twstock168.herokuapp.com/stock6/" title="stock6"><FONT SIZE="7">回 六大指標智慧系統 六大指標即時查詢 功能</FONT></a></td>
+
+</tr>
+
+
+<tr>
+<td align="center"><a href="https://twstock168.herokuapp.com/usersmain/" title="home"><FONT SIZE="7">回 六大指標智慧系統 功能首頁</FONT></a></td>
+
+</tr>
+
+</table>
+
+
+
+</body>
+
+</html>
