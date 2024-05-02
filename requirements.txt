@@ -5,10 +5,10 @@ mysql-connector-python==8.0.30
 asgiref==3.2.7
 bcrypt==3.2.0
 cffi==1.14.4
-Django==3.0.5
+Django==3.2
 mysqlclient==2.1.1
 pycparser==2.20
-pytz==2019.3
+pytz
 six==1.14.0
 sqlparse==0.3.1
 uWSGI==2.0.20
@@ -23,7 +23,7 @@ EasyProcess==0.3
 idna==2.9
 importlib-metadata==2.1.3
 kiwisolver==1.2.0
-python-dateutil==2.8.1
+python-dateutil
 python-dotenv==0.13.0
 requests==2.23.0
 rerequests==1.0.0b0
