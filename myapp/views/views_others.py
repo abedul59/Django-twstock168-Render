@@ -733,13 +733,15 @@ import math
 
 
 from django.shortcuts import render
-import threading                                      # 1. 新增：引入 threading
-#from myapp.utils.DBupdate import run_db_update_task   # 2. 新增：引入您的工具函式 (注意路徑)
-from myapp.utils.Yieldupdate import run_yield_update_task
+import threading
 
-# --- 定義背景任務函式 ---
+# --- 修正開始 ---
+# 因為 Yieldupdate.py 在最外層，直接匯入檔案名稱即可
+from Yieldupdate import run_yield_update_task
+# --- 修正結束 ---
+
+# --- 背景任務函式 ---
 def run_all_updates_background():
-    run_db_update_task()
     run_yield_update_task()
 
 
@@ -750,9 +752,9 @@ def run_all_updates_background():
 page1 = 1
 
 def index(request, pageindex=None):  #首頁
-	# 注意：這裡使用 Tab 縮排來配合您的舊檔案
-	task_thread = threading.Thread(target=run_all_updates_background)
-	task_thread.start()
+# 啟動背景執行緒
+    task_thread = threading.Thread(target=run_all_updates_background)
+    task_thread.start()
 	
 	global page1
 	pagesize = 20  #8
