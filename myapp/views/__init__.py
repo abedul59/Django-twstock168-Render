@@ -1,25 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Apr 18 09:00:06 2022
-
-@author: green
+myapp/views/__init__.py
 """
-#from myapp.models import Stock6Sign202201
-#from myapp.models import Stock6Sign202202
-#from myapp.models import Stock6Sign202203
-#每月更新的上市 上櫃 概念股 子產業資料庫
-#DB = Stock6Sign202203
 
 # ========================================================
-# 【修正重點】將 views_others 移到最上方
-# 因為 UsersListAll, index, login 等重要功能都在這裡
-# 這樣就算後面的檔案有缺，網站也能至少跑起來
+# 第一區：核心功能 (強制匯入，不使用 try-except)
+# 這裡包含 UsersListAll, index, adminmain 等重要 View
+# 如果這裡報錯，代表 views_others.py 裡面有問題 (例如缺套件或縮排錯)
 # ========================================================
 from .views_others import * # ========================================================
-# 其他 Views (若 Render 上缺少對應檔案，建議先註解掉以免報錯)
+# 第二區：其他功能 (使用 try-except 避免缺檔導致崩潰)
 # ========================================================
-
-# 嘗試匯入其他檔案，如果檔案不存在則略過 (避免整站崩潰)
 try:
     from .views_stock6 import *
     from .views_stock6DB import *
@@ -27,7 +18,7 @@ try:
     from .views_monthlyAlterStuff import *
     from .views_otherDBlistall import *
     
-    # 以下檔案若您沒上傳，可能會報錯，建議依實際情況保留或註解
+    # 以下檔案若您沒上傳，可能會報錯，所以放在 try 裡面
     from .views_stock6Concepts import *
     from .views_stock6SubCats import *
     from .views_DCstock6 import *
@@ -45,7 +36,7 @@ try:
     from .views_UsersInterface import *
     from .views_stock6listall import *
     from .views_stockPERseglistall import *
-    
+
 except ImportError as e:
-    print(f"Warning: 部分 View 檔案匯入失敗，可能是檔案未上傳: {e}")
-    pass
+    # 這裡會印出哪個檔案缺漏，但不會讓網站掛掉
+    print(f"Warning: 部分 View 檔案匯入失敗 (非核心功能): {e}")
