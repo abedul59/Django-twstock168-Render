@@ -734,8 +734,8 @@ try:
 except ImportError as e:
 	print(f"警告: 找不到 Yieldupdate.py，背景自動更新將暫時停用。錯誤: {e}")
     # 定義一個空函式，防止程式報錯
-    def run_yield_update_task():
-        print("Error: 無法執行背景任務，因為找不到 Yieldupdate 模組")
+	def run_yield_update_task():
+		print("Error: 無法執行背景任務，因為找不到 Yieldupdate 模組")
 # -----------------------------------------------------------
 
 # --- 背景任務函式 ---
