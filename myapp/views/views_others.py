@@ -731,9 +731,28 @@ from myapp import models
 #from django import template
 import math
 
+
+from django.shortcuts import render
+import threading                                      # 1. 新增：引入 threading
+#from myapp.utils.DBupdate import run_db_update_task   # 2. 新增：引入您的工具函式 (注意路徑)
+from myapp.utils.Yieldupdate import run_yield_update_task
+
+# --- 定義背景任務函式 ---
+def run_all_updates_background():
+    run_db_update_task()
+    run_yield_update_task()
+
+
+
+
+
+
 page1 = 1
 
 def index(request, pageindex=None):  #首頁
+
+	task_thread = threading.Thread(target=run_all_updates_background)
+    task_thread.start()
     
 	global page1
 	pagesize = 20  #8
