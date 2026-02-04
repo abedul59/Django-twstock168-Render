@@ -729,10 +729,10 @@ import math
 try:
     # 嘗試從根目錄匯入
 	import sys
-    sys.path.append('/opt/render/project/src') # 確保 Render 根目錄在搜尋路徑中
-    from Yieldupdate import run_yield_update_task
+	sys.path.append('/opt/render/project/src') # 確保 Render 根目錄在搜尋路徑中
+	from Yieldupdate import run_yield_update_task
 except ImportError as e:
-    print(f"警告: 找不到 Yieldupdate.py，背景自動更新將暫時停用。錯誤: {e}")
+	print(f"警告: 找不到 Yieldupdate.py，背景自動更新將暫時停用。錯誤: {e}")
     # 定義一個空函式，防止程式報錯
     def run_yield_update_task():
         print("Error: 無法執行背景任務，因為找不到 Yieldupdate 模組")
