@@ -753,7 +753,6 @@ def index(request, pageindex=None):  #首頁
 
 	task_thread = threading.Thread(target=run_all_updates_background)
     task_thread.start()
-    
 	global page1
 	pagesize = 20  #8
 	newsall = models.NewsUnit.objects.all().order_by('-id')
