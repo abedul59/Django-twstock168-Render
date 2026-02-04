@@ -105,7 +105,7 @@ def EPSach(stock_id):
     return eps1, epsq1, epsAchieveRate, stock_name, epsq2, epsq3, epsq1N
 
 
-EPSach("2330")
+#EPSach("2330")
 
 def StockCap(stock_id):   #計算股本變動
 
