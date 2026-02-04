@@ -757,8 +757,6 @@ def index(request, pageindex=None):  #首頁
     task_thread.start()
     global page1
     # --- 修正縮排結束 ---
-	
-	global page1
 	pagesize = 20  #8
 	newsall = models.NewsUnit.objects.all().order_by('-id')
 	datasize = len(newsall)
