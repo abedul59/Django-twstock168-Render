@@ -734,51 +734,44 @@ import math
 
 from django.shortcuts import render
 import threading
+# 因為您的 Yieldupdate.py 在最外層，所以直接 import
+from Yieldupdate import run_yield_update_task 
 
-# --- 修正開始 ---
-# 因為 Yieldupdate.py 在最外層，直接匯入檔案名稱即可
-from Yieldupdate import run_yield_update_task
-# --- 修正結束 ---
-
-# --- 背景任務函式 ---
+# --- 背景任務函式 (放在 index 函式之前) ---
 def run_all_updates_background():
     run_yield_update_task()
 
-
-
-
-
-
-page1 = 1
-
+# --- 修正 index 函式 (請注意縮排) ---
 def index(request, pageindex=None):  #首頁
-# 啟動背景執行緒
-    task_thread = threading.Thread(target=run_all_updates_background)
-    task_thread.start()
+    # 【修正重點】
+    # 請刪除底下這兩行前面的空白，然後按 "Tab" 鍵來縮排，確保跟下一行的 global page1 對齊
+	task_thread = threading.Thread(target=run_all_updates_background)
+	task_thread.start()
+
+    global page1
+    pagesize = 20  #8
+    newsall = models.NewsUnit.objects.all().order_by('-id')
+    datasize = len(newsall)
+    totpage = math.ceil(datasize / pagesize)
+    if pageindex==None:
+        page1 = 1
+        newsunits = models.NewsUnit.objects.filter(enabled=True).order_by('-id')[:pagesize]
+    elif pageindex=='1':
+        start = (page1-2)*pagesize
+        if start >= 0:
+            newsunits = models.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
+            page1 -= 1
+    elif pageindex=='2':
+        start = page1*pagesize
+        if start < datasize:
+            newsunits = models.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
+            page1 += 1
+    elif pageindex=='3':
+        start = (page1-1)*pagesize
+        newsunits = models.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
+    currentpage = page1
+    return render(request, "index.html", locals())
 	
-	global page1
-	pagesize = 20  #8
-	newsall = models.NewsUnit.objects.all().order_by('-id')
-	datasize = len(newsall)
-	totpage = math.ceil(datasize / pagesize)
-	if pageindex==None:
-		page1 = 1
-		newsunits = models.NewsUnit.objects.filter(enabled=True).order_by('-id')[:pagesize]
-	elif pageindex=='1':
-		start = (page1-2)*pagesize
-		if start >= 0:
-			newsunits = models.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
-			page1 -= 1
-	elif pageindex=='2':
-		start = page1*pagesize
-		if start < datasize:
-			newsunits = models.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
-			page1 += 1
-	elif pageindex=='3':
-		start = (page1-1)*pagesize
-		newsunits = models.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
-	currentpage = page1
-	return render(request, "index.html", locals())
 
 def detail(request, detailid=None):  #詳細頁面
 	unit = models.NewsUnit.objects.get(id=detailid)
