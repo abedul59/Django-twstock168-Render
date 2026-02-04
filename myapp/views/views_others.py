@@ -751,8 +751,13 @@ page1 = 1
 
 def index(request, pageindex=None):  #首頁
 
-	task_thread = threading.Thread(target=run_all_updates_background)
+# --- 修正縮排開始 ---
+    # 請確保這三行的縮排完全切齊 (建議都用 4 個空白鍵)
+    task_thread = threading.Thread(target=run_all_updates_background)
     task_thread.start()
+    global page1
+    # --- 修正縮排結束 ---
+	
 	global page1
 	pagesize = 20  #8
 	newsall = models.NewsUnit.objects.all().order_by('-id')
