@@ -1657,19 +1657,21 @@ def PERsegx(stock_id, month_id):
 #    yahoo_tradePriceX = float(dfs[0][3][6]) #yahoo成交價
     #print(yahoo_tradePrice)
     #########取得最新價格
+    try:
+        url = f'https://stock.wearn.com/a{stock_id}.html'
+        r = requests.post(url, headers=get_headers())
+        soup = BeautifulSoup(r.content, 'html.parser')
+        uls = soup.find_all('ul')
+        for ul in uls:
+            if "成交價" in str(ul):
+                li = ul.find_all('li')[0]
+                yahoo_latest_tradePrice = float(li.text)
+                break
+        if yahoo_latest_tradePrice == 0 and len(uls) > 6:
+             yahoo_latest_tradePrice = float(uls[4].find_all('li')[0].text)
+    except: pass
 
-    bank_url2 = 'https://goodinfo.tw/StockInfo/DayTrading.asp?STOCK_ID=' 
-    headers = {'user-agent': 'Mozilla/5.0 (Macintosh Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'}
-    url = bank_url2 + stock_id
-    r = requests.post(url, headers=headers)
-    soup = BeautifulSoup(r.content, 'html.parser')
-    table = soup.find_all('table');
-    dfs = pd.read_html(str(table))
 
-    
-    #print(dfs[-2].iloc[0].iloc[1]) #最新收盤價
-
-    yahoo_latest_tradePrice = float(dfs[-2].iloc[0].iloc[1]) #goodinfo最新成交價
    
 ################################ 
     
