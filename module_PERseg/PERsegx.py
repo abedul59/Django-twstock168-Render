@@ -1657,6 +1657,14 @@ def PERsegx(stock_id, month_id):
 #    yahoo_tradePriceX = float(dfs[0][3][6]) #yahoo成交價
     #print(yahoo_tradePrice)
     #########取得最新價格
+    def get_headers():
+        user_agents = [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        ]
+        return {'User-Agent': random.choice(user_agents), 'Referer': 'https://tw.stock.yahoo.com/'}
+
+
     
     url = f'https://stock.wearn.com/a{stock_id}.html'
     r = requests.post(url, headers=get_headers())
