@@ -309,7 +309,7 @@ def PERsegx(stock_id, month_id):
         print(xEPSList)
         ######2021/03/13 Q4財報出來大修改  20211224 MoneyDJ大改版
         
-        if eps1N == '2023':  #在3/31前，Q4財報先出來的情況  年度轉換時還不適用
+        if eps1N == '2025':  #在3/31前，Q4財報先出來的情況  年度轉換時還不適用
             
             eps1 = xEPSList[2] #dfs[2][1][98] #最新1年的合併總損益 每股盈餘 2021
             eps2 = xEPSList[3] #dfs[2][2][98] #最新2年的合併總損益 每股盈餘 2020
@@ -345,7 +345,7 @@ def PERsegx(stock_id, month_id):
             PER_L = min(PER_L_average,PER_L1)  #本益比低點與最新孰低  
 
           
-        elif eps1N == '2022':  #3/31前，Q4財報還沒出來的情況 沒有2021的全年EPS
+        elif eps1N == '2024':  #3/31前，Q4財報還沒出來的情況 沒有2021的全年EPS
     ####2020/07/02 加入本益比成長率
             #2021EPS還沒出來的情況   #2021/12/31修改 欄位已改變 12/30最後交易日
             eps1 = xEPSList[2] #dfs[2][1][98] #最新1年的合併總損益 每股盈餘 2020
@@ -672,7 +672,7 @@ def PERsegx(stock_id, month_id):
 #dfs[2][1] 由左至右 第一欄 最新季
 #dfs[2][1][98] #最新1年的合併總損益 每股盈餘
          #2023/3/7 3-4月間要改年分2022/2021
-            if eps1N == '2023':  #在3/31前，Q4財報先出來的情況
+            if eps1N == '2025':  #在3/31前，Q4財報先出來的情況
 
                 eps1 = xEPSList[2] #最新1年的合併總損益 每股盈餘 2021
                 eps2 = xEPSList[3]#最新2年的合併總損益 每股盈餘 2020
@@ -703,7 +703,7 @@ def PERsegx(stock_id, month_id):
                 PER_H = min(PER_H_average,PER_H1)  #本益比高點與最新孰低
                 PER_L = min(PER_L_average,PER_L1)  #本益比低點與最新孰低
 
-            elif eps1N == '2022':  #在三月時，Q4財報還沒出來的情況
+            elif eps1N == '2024':  #在三月時，Q4財報還沒出來的情況
 
                 eps1 = xEPSList[2] #最新1年的合併總損益 每股盈餘 2020
                 eps2 = xEPSList[3] #最新2年的合併總損益 每股盈餘 2019
