@@ -1675,8 +1675,8 @@ def PERsegx(stock_id, month_id):
             li = ul.find_all('li')[0]
             yahoo_latest_tradePrice = float(li.text)
             break
-    if yahoo_latest_tradePrice == 0 and len(uls) > 6:
-            yahoo_latest_tradePrice = float(uls[4].find_all('li')[0].text)
+    #if yahoo_latest_tradePrice == 0 and len(uls) > 6:
+    yahoo_latest_tradePrice = float(uls[4].find_all('li')[0].text)
 
 
 
