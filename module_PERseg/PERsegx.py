@@ -411,7 +411,11 @@ def PERsegx(stock_id, month_id):
 #print(html.text) #以json格式呈現
 
         soup = BeautifulSoup(r.content, 'lxml')
-        table = soup.find_all('table')[0]  #原本是[2] 沒變
+        table = soup.find_all('table')
+        print(len(table))
+        print(table[0])
+        print(table[1])
+        
         dfs = pd.read_html(str(table))
         #print(soup)
         print(dfs)
