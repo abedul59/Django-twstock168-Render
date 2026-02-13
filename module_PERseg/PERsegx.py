@@ -405,13 +405,13 @@ def PERsegx(stock_id, month_id):
         eps1N = xYearSeasonTitleList[2] #dfs[2][1][0] #最新1年的名稱 2020
 
 
-        payload = {'input_stock_code': stock_id} #股價空格 要填入代號
+        #payload = {'input_stock_code': stock_id} #股價空格 要填入代號
 # 將查詢參數加入 POST 請求中
-        r = requests.post("https://www.tpex.org.tw/web/stock/statistics/monthly/st42.php?l=zh-tw", data=payload, headers=headers)
+        r = requests.get("https://www.tpex.org.tw/zh-tw/mainboard/trading/info/stock-year.html?code="+ stock_id, headers=headers)
 #print(html.text) #以json格式呈現
 
         soup = BeautifulSoup(r.content, 'lxml')
-        table = soup.find_all('table')[0]  #原本是[2] 沒變
+        table = soup.find_all('table')[2]  #原本是[2] 沒變
         dfs = pd.read_html(str(table))
         #print(soup)
         print(dfs)
