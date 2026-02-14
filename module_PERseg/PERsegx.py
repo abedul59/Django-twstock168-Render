@@ -710,7 +710,7 @@ def PERsegx(stock_id, month_id):
 
         Rev_Predict = round(thisYear_Sum + theRest_Predict, 4) #預估今年全年營收
 
-        if epsq1N == '2020.4Q' :
+        if epsq1N == '2025.4Q' :
             Q4_Rev_Predict = None
         else:            
             Q4_Rev_Predict = r3+r4+r5 #2020/10,11,12月營收
@@ -1229,7 +1229,7 @@ def PERsegx(stock_id, month_id):
     Predict_EPS0 = 0.0
 
     #2021/2/28新增  3/12更改Q3 Q4並存情況  4/16再修改精簡
-    if eps1N == '2023' :
+    if eps1N == '2025' :
         #pass
         Predict_EPS0 = eps1
     else:
