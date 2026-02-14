@@ -303,7 +303,7 @@ def PERsegx(stock_id, month_id):
                     eps1N = xYearSeasonTitleList[1] # 國泰最新1年的名稱 (可能是 2024 或 2023)
                     print("xYearSeasonTitleList[0]=")
                     print(xYearSeasonTitleList[0])
-                    print("xYearSeasonTitleList[]=")
+                    print("xYearSeasonTitleList[1]=")
                     print(xYearSeasonTitleList[1])
 
                     
@@ -424,7 +424,7 @@ def PERsegx(stock_id, month_id):
         #dfs[2] 真正表格
         #dfs[2][1] 由左至右 第一欄 最新季
         print(xYearSeasonTitle)
-        eps1N = xYearSeasonTitleList[1] #dfs[2][1][0] #最新1年的名稱 2020
+        eps1N = xYearSeasonTitleList[2] #dfs[2][1][0] #最新1年的名稱 2020
         print("xYearSeasonTitleList[1]=")
         print(xYearSeasonTitleList[1])
         print("xYearSeasonTitleList[2]=")
