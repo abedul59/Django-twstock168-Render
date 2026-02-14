@@ -1165,7 +1165,7 @@ def PERsegx(stock_id, month_id):
 #dfs[2][1] 由左至右 第一欄 最新季
     #print(xYearSeasonTitle)
     epsq1N = xYearSeasonTitleList[2] #dfs[2][1][0] #最新1年的名稱 2020
-    print("epsq1N="
+    print("epsq1N=")
     print(epsq1N)
     print(xNetList)
 
