@@ -516,39 +516,7 @@ def PERsegx(stock_id, month_id):
         PER_L = min(PER_L_average,PER_L1)  #本益比低點與最新孰低
 
     # 【新增】年份判斷 2023 (如果資料庫尚未更新 2024 年報)
-    elif eps1N == '2023':  
-        eps1 = xEPSList[2] # 2023
-        eps2 = xEPSList[3] # 2022
-        eps3 = xEPSList[4] # 2021
-        eps4 = xEPSList[5] # 2020
-        eps5 = xEPSList[6] # 2019
-        eps6 = xEPSList[7] # 2018
-        
-        print(f"DEBUG: EPS1 (2023) = {eps1}")
 
-        # 使用 H3 (2023股價) 對應 eps1 (2023 EPS)
-        PER_H1 = round(float(H3)/float(eps1),2)  
-        PER_L1 = round(float(L3)/float(eps1),2)  
-
-        PER_H2 = round(float(H4)/float(eps2),2)  
-        PER_L2 = round(float(L4)/float(eps2),2)  
-
-        PER_H3 = round(float(H5)/float(eps3),2)  
-        PER_L3 = round(float(L5)/float(eps3),2)  
-
-        PER_H4 = round(float(H6)/float(eps4),2)  
-        PER_L4 = round(float(L6)/float(eps4),2)  
-    
-        # H7, L7 我們沒有抓，所以這裡可能要用 None 或簡化
-        PER_H5 = 0
-        PER_L5 = 0
-
-        # 平均只算前 4 年有資料的
-        PER_H_average = round(float((PER_H1 + PER_H2 + PER_H3 + PER_H4)/4),2)
-        PER_L_average = round(float((PER_L1 + PER_L2 + PER_L3 + PER_L4)/4),2)
-
-        PER_H = min(PER_H_average,PER_H1)  
-        PER_L = min(PER_L_average,PER_L1) 
 
 
     #只有三月時年報公佈前後需要  2021轉2022時就需要 可能更早就要
