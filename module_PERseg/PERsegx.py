@@ -1144,7 +1144,7 @@ def PERsegx(stock_id, month_id):
 ###############預估 淨利 EPS
     Net_Predict = round(Rev_Predict*Net4Average,6)
     #2021/2/28新增
-    if eps1N == '2023' :
+    if eps1N == '2025' :
         
         Q4_Net_Predict = None
         
@@ -1190,7 +1190,7 @@ def PERsegx(stock_id, month_id):
     Predict_EPS0 = 0.0
 
     #2021/2/28新增  3/12更改Q3 Q4並存情況  4/16再修改精簡
-    if eps1N == '2023' :
+    if eps1N == '2025' :
         #pass
         Predict_EPS0 = eps1
     else:
